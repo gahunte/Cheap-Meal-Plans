@@ -6,419 +6,399 @@
   <title>Delicious & Affordable Meal Plans for Everyone!</title>
   <style>
     body {
-      font-family: Arial, sans-serif;
-      background-color: #f9fafb;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #f9fdf9;
+      color: #2a3d45;
       margin: 0;
-      padding: 0;
-      color: #333;
-    }
-    header {
-      background-color: #4caf50;
-      color: white;
-      padding: 1.5rem 2rem;
-      text-align: center;
-      font-size: 1.8rem;
-      font-weight: bold;
-      letter-spacing: 1.2px;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.15);
-    }
-    main {
+      padding: 20px;
       max-width: 900px;
-      margin: 2rem auto;
-      padding: 0 1rem;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    h1 {
+      text-align: center;
+      color: #1e7e34;
+      font-weight: 900;
+      font-size: 2.8rem;
+      margin-bottom: 10px;
     }
     h2 {
-      color: #388e3c;
-      margin-bottom: 0.6rem;
+      color: #1b5e20;
+      border-bottom: 3px solid #4caf50;
+      padding-bottom: 6px;
+      margin-top: 40px;
       display: flex;
-      justify-content: space-between;
       align-items: center;
+      justify-content: space-between;
     }
-    .week {
-      background: #e8f5e9;
-      border-radius: 8px;
-      padding: 1rem 1.5rem;
-      margin-bottom: 2rem;
-      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    h2 button.print-btn {
+      background-color: #4caf50;
+      color: white;
+      border: none;
+      padding: 6px 14px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: bold;
+      font-size: 0.9rem;
+      transition: background-color 0.3s ease;
+    }
+    h2 button.print-btn:hover {
+      background-color: #388e3c;
+    }
+    section.week {
+      background: white;
+      padding: 20px;
+      margin-top: 20px;
+      border-radius: 10px;
+      box-shadow: 0 3px 8px rgba(0,0,0,0.1);
     }
     .meal-day {
-      margin-bottom: 1rem;
+      margin-bottom: 20px;
+      border-left: 4px solid #81c784;
+      padding-left: 12px;
     }
     .meal-day h3 {
-      margin-bottom: 0.3rem;
-      font-weight: 600;
       color: #2e7d32;
+      margin-bottom: 8px;
+      font-weight: 700;
     }
     ul {
       list-style: none;
       padding-left: 0;
-      margin: 0;
     }
     ul li {
-      margin-bottom: 0.4rem;
+      margin-bottom: 8px;
+      font-size: 1.05rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
     }
-    a.locked {
-      color: #555;
+    ul li a.locked {
+      color: #1565c0;
       text-decoration: none;
-      cursor: pointer;
-      position: relative;
-      font-weight: 500;
-    }
-    a.locked::before {
-      content: "🔒 ";
-      color: #c62828;
-      font-weight: normal;
-    }
-    a.locked:hover {
-      text-decoration: underline;
-      color: #2e7d32;
-    }
-    .cost {
-      margin-left: 0.4rem;
       font-weight: 600;
-      color: #4caf50;
+      position: relative;
+      padding-left: 22px;
     }
-    .buy-week-btn {
+    ul li a.locked::before {
+      content: "🔒";
+      position: absolute;
+      left: 0;
+      top: 0;
+      font-size: 1.1rem;
+      line-height: 1;
+    }
+    span.macros {
+      font-style: italic;
+      font-size: 0.85rem;
+      color: #31708f;
+      white-space: nowrap;
+      min-width: 260px;
+      text-align: right;
+      font-family: 'Courier New', Courier, monospace;
+    }
+    a.buy-week-btn {
       display: inline-block;
-      margin-top: 1rem;
-      background-color: #43a047;
+      margin-top: 15px;
+      background-color: #388e3c;
       color: white;
-      padding: 0.6rem 1.3rem;
-      border-radius: 5px;
       text-decoration: none;
-      font-weight: bold;
+      font-weight: 700;
+      padding: 10px 20px;
+      border-radius: 8px;
       transition: background-color 0.3s ease;
     }
-    .buy-week-btn:hover {
-      background-color: #2e7d32;
-    }
-    .print-btn {
-      background-color: #81c784;
-      border: none;
-      color: white;
-      padding: 0.3rem 0.8rem;
-      font-size: 0.9rem;
-      border-radius: 5px;
-      cursor: pointer;
-      transition: background-color 0.25s ease;
-    }
-    .print-btn:hover {
-      background-color: #66bb6a;
+    a.buy-week-btn:hover {
+      background-color: #2e7031;
     }
     footer {
+      margin-top: 50px;
       text-align: center;
-      color: #777;
-      padding: 1.5rem 0;
+      color: #999;
       font-size: 0.9rem;
-      border-top: 1px solid #ddd;
-      margin-top: 3rem;
     }
   </style>
 </head>
 <body>
-  <header>Delicious & Affordable Meal Plans for Everyone!</header>
+  <h1>Delicious & Affordable Meal Plans for Everyone!</h1>
 
-  <main id="recipes">
+  <!-- Week 1 -->
+  <section id="week1" class="week">
+    <h2>Week 1 <button class="print-btn" onclick="printWeek('#week1')">Print Week</button></h2>
 
-    <!-- Week 1 -->
-    <section id="week1" class="week">
-      <h2>Week 1 <button class="print-btn" onclick="printWeek('#week1')">Print Week</button></h2>
+    <div class="meal-day">
+      <h3>Day 1</h3>
+      <ul>
+        <li><a href="https://gumroad.com/l/day1-breakfast" target="_blank" class="locked">Oatmeal with banana and walnuts</a>
+            <span class="macros">Calories: 320, Carbs: 45g, Protein: 8g, Fat: 12g, Fiber: 6g</span></li>
+        <li><a href="https://gumroad.com/l/day1-lunch" target="_blank" class="locked">Grilled chicken salad with mixed greens</a>
+            <span class="macros">Calories: 400, Carbs: 10g, Protein: 35g, Fat: 20g, Fiber: 5g</span></li>
+        <li><a href="https://gumroad.com/l/day1-dinner" target="_blank" class="locked">Baked salmon with quinoa and broccoli</a>
+            <span class="macros">Calories: 450, Carbs: 30g, Protein: 40g, Fat: 15g, Fiber: 7g</span></li>
+      </ul>
+    </div>
 
-      <div class="meal-day">
-        <h3>Day 1</h3>
-        <ul>
-          <li><a href="https://gumroad.com/l/day1-breakfast" target="_blank" class="locked">Oatmeal with banana & honey</a><span class="cost">($1.00)</span></li>
-          <li><a href="https://gumroad.com/l/day1-lunch" target="_blank" class="locked">Rice and black beans with salsa</a><span class="cost">($1.00)</span></li>
-          <li><a href="https://gumroad.com/l/day1-dinner" target="_blank" class="locked">Baked chicken breast with steamed broccoli</a><span class="cost">($1.00)</span></li>
-        </ul>
-      </div>
+    <div class="meal-day">
+      <h3>Day 2</h3>
+      <ul>
+        <li><a href="https://gumroad.com/l/day2-breakfast" target="_blank" class="locked">Greek yogurt with honey and almonds</a>
+            <span class="macros">Calories: 280, Carbs: 20g, Protein: 15g, Fat: 10g, Fiber: 2g</span></li>
+        <li><a href="https://gumroad.com/l/day2-lunch" target="_blank" class="locked">Turkey sandwich on whole wheat</a>
+            <span class="macros">Calories: 350, Carbs: 40g, Protein: 25g, Fat: 8g, Fiber: 5g</span></li>
+        <li><a href="https://gumroad.com/l/day2-dinner" target="_blank" class="locked">Vegetable stir-fry with tofu</a>
+            <span class="macros">Calories: 400, Carbs: 50g, Protein: 20g, Fat: 12g, Fiber: 8g</span></li>
+      </ul>
+    </div>
 
-      <div class="meal-day">
-        <h3>Day 2</h3>
-        <ul>
-          <li><a href="https://gumroad.com/l/day2-breakfast" target="_blank" class="locked">Greek yogurt with granola and berries</a><span class="cost">($1.00)</span></li>
-          <li><a href="https://gumroad.com/l/day2-lunch" target="_blank" class="locked">Whole wheat chicken wrap with veggies</a><span class="cost">($1.00)</span></li>
-          <li><a href="https://gumroad.com/l/day2-dinner" target="_blank" class="locked">Pasta primavera with tomato sauce</a><span class="cost">($1.00)</span></li>
-        </ul>
-      </div>
+    <div class="meal-day">
+      <h3>Day 3</h3>
+      <ul>
+        <li><a href="https://gumroad.com/l/day3-breakfast" target="_blank" class="locked">Smoothie bowl with berries and chia</a>
+            <span class="macros">Calories: 300, Carbs: 40g, Protein: 10g, Fat: 9g, Fiber: 7g</span></li>
+        <li><a href="https://gumroad.com/l/day3-lunch" target="_blank" class="locked">Quinoa salad with black beans</a>
+            <span class="macros">Calories: 420, Carbs: 55g, Protein: 22g, Fat: 10g, Fiber: 9g</span></li>
+        <li><a href="https://gumroad.com/l/day3-dinner" target="_blank" class="locked">Roasted chicken with sweet potatoes</a>
+            <span class="macros">Calories: 480, Carbs: 40g, Protein: 45g, Fat: 14g, Fiber: 6g</span></li>
+      </ul>
+    </div>
 
-      <div class="meal-day">
-        <h3>Day 3</h3>
-        <ul>
-          <li><a href="https://gumroad.com/l/day3-breakfast" target="_blank" class="locked">Scrambled eggs with whole wheat toast</a><span class="cost">($1.00)</span></li>
-          <li><a href="https://gumroad.com/l/day3-lunch" target="_blank" class="locked">Tuna salad sandwich</a><span class="cost">($1.00)</span></li>
-          <li><a href="https://gumroad.com/l/day3-dinner" target="_blank" class="locked">Spaghetti with lean meat sauce</a><span class="cost">($1.00)</span></li>
-        </ul>
-      </div>
+    <div class="meal-day">
+      <h3>Day 4</h3>
+      <ul>
+        <li><a href="https://gumroad.com/l/day4-breakfast" target="_blank" class="locked">Whole grain toast with avocado</a>
+            <span class="macros">Calories: 320, Carbs: 35g, Protein: 8g, Fat: 15g, Fiber: 7g</span></li>
+        <li><a href="https://gumroad.com/l/day4-lunch" target="_blank" class="locked">Lentil soup with carrots and celery</a>
+            <span class="macros">Calories: 350, Carbs: 45g, Protein: 25g, Fat: 5g, Fiber: 10g</span></li>
+        <li><a href="https://gumroad.com/l/day4-dinner" target="_blank" class="locked">Pasta with tomato and basil sauce</a>
+            <span class="macros">Calories: 430, Carbs: 60g, Protein: 18g, Fat: 7g, Fiber: 6g</span></li>
+      </ul>
+    </div>
 
-      <div class="meal-day">
-        <h3>Day 4</h3>
-        <ul>
-          <li><a href="https://gumroad.com/l/day4-breakfast" target="_blank" class="locked">Smoothie with spinach, banana, and almond milk</a><span class="cost">($1.00)</span></li>
-          <li><a href="https://gumroad.com/l/day4-lunch" target="_blank" class="locked">Quinoa salad with chickpeas and cucumbers</a><span class="cost">($1.00)</span></li>
-          <li><a href="https://gumroad.com/l/day4-dinner" target="_blank" class="locked">Grilled salmon with roasted sweet potatoes</a><span class="cost">($1.00)</span></li>
-        </ul>
-      </div>
+    <div class="meal-day">
+      <h3>Day 5</h3>
+      <ul>
+        <li><a href="https://gumroad.com/l/day5-breakfast" target="_blank" class="locked">Scrambled eggs with spinach</a>
+            <span class="macros">Calories: 280, Carbs: 5g, Protein: 20g, Fat: 18g, Fiber: 2g</span></li>
+        <li><a href="https://gumroad.com/l/day5-lunch" target="_blank" class="locked">Chicken wrap with veggies</a>
+            <span class="macros">Calories: 400, Carbs: 35g, Protein: 30g, Fat: 12g, Fiber: 5g</span></li>
+        <li><a href="https://gumroad.com/l/day5-dinner" target="_blank" class="locked">Beef stir-fry with brown rice</a>
+            <span class="macros">Calories: 480, Carbs: 45g, Protein: 40g, Fat: 16g, Fiber: 6g</span></li>
+      </ul>
+    </div>
 
-      <div class="meal-day">
-        <h3>Day 5</h3>
-        <ul>
-          <li><a href="https://gumroad.com/l/day5-breakfast" target="_blank" class="locked">Peanut butter toast with apple slices</a><span class="cost">($1.00)</span></li>
-          <li><a href="https://gumroad.com/l/day5-lunch" target="_blank" class="locked">Vegetable stir-fry with brown rice</a><span class="cost">($1.00)</span></li>
-          <li><a href="https://gumroad.com/l/day5-dinner" target="_blank" class="locked">Turkey chili with beans</a><span class="cost">($1.00)</span></li>
-        </ul>
-      </div>
+    <div class="meal-day">
+      <h3>Day 6</h3>
+      <ul>
+        <li><a href="https://gumroad.com/l/day6-breakfast" target="_blank" class="locked">Protein pancakes with syrup</a>
+            <span class="macros">Calories: 350, Carbs: 50g, Protein: 25g, Fat: 6g, Fiber: 4g</span></li>
+        <li><a href="https://gumroad.com/l/day6-lunch" target="_blank" class="locked">Tuna salad sandwich</a>
+            <span class="macros">Calories: 380, Carbs: 30g, Protein: 35g, Fat: 10g, Fiber: 3g</span></li>
+        <li><a href="https://gumroad.com/l/day6-dinner" target="_blank" class="locked">Vegetable curry with rice</a>
+            <span class="macros">Calories: 460, Carbs: 55g, Protein: 20g, Fat: 14g, Fiber: 8g</span></li>
+      </ul>
+    </div>
 
-      <div class="meal-day">
-        <h3>Day 6</h3>
-        <ul>
-          <li><a href="https://gumroad.com/l/day6-breakfast" target="_blank" class="locked">Cottage cheese with pineapple</a><span class="cost">($1.00)</span></li>
-          <li><a href="https://gumroad.com/l/day6-lunch" target="_blank" class="locked">Egg salad sandwich</a><span class="cost">($1.00)</span></li>
-          <li><a href="https://gumroad.com/l/day6-dinner" target="_blank" class="locked">Vegetable curry with basmati rice</a><span class="cost">($1.00)</span></li>
-        </ul>
-      </div>
+    <div class="meal-day">
+      <h3>Day 7</h3>
+      <ul>
+        <li><a href="https://gumroad.com/l/day7-breakfast" target="_blank" class="locked">Chia pudding with mango</a>
+            <span class="macros">Calories: 300, Carbs: 35g, Protein: 10g, Fat: 12g, Fiber: 8g</span></li>
+        <li><a href="https://gumroad.com/l/day7-lunch" target="_blank" class="locked">Veggie burger with salad</a>
+            <span class="macros">Calories: 400, Carbs: 40g, Protein: 25g, Fat: 15g, Fiber: 7g</span></li>
+        <li><a href="https://gumroad.com/l/day7-dinner" target="_blank" class="locked">Grilled shrimp with couscous</a>
+            <span class="macros">Calories: 450, Carbs: 30g, Protein: 40g, Fat: 12g, Fiber: 5g</span></li>
+      </ul>
+    </div>
 
-      <div class="meal-day">
-        <h3>Day 7</h3>
-        <ul>
-          <li><a href="https://gumroad.com/l/day7-breakfast" target="_blank" class="locked">Whole grain pancakes with berries</a><span class="cost">($1.00)</span></li>
-          <li><a href="https://gumroad.com/l/day7-lunch" target="_blank" class="locked">Lentil soup with whole wheat bread</a><span class="cost">($1.00)</span></li>
-          <li><a href="https://gumroad.com/l/day7-dinner" target="_blank" class="locked">Roasted chicken with mixed veggies</a><span class="cost">($1.00)</span></li>
-        </ul>
-      </div>
+    <a href="https://gumroad.com/l/week1" target="_blank" class="buy-week-btn">Buy Week 1 Meal Plan</a>
+  </section>
 
-      <a href="https://gumroad.com/l/week1-all" target="_blank" class="buy-week-btn" aria-label="Buy all recipes for Week 1 for $10">Buy Week 1 Recipes - $10</a>
-    </section>
+  <!-- Week 2 -->
+  <section id="week2" class="week">
+    <h2>Week 2 <button class="print-btn" onclick="printWeek('#week2')">Print Week</button></h2>
 
-    <!-- Week 2 -->
-    <section id="week2" class="week">
-      <h2>Week 2 <button class="print-btn" onclick="printWeek('#week2')">Print Week</button></h2>
+    <div class="meal-day">
+      <h3>Day 1</h3>
+      <ul>
+        <li><a href="https://gumroad.com/l/week2-day1-breakfast" target="_blank" class="locked">Whole wheat toast with peanut butter and apple slices</a>
+            <span class="macros">Calories: 350, Carbs: 40g, Protein: 12g, Fat: 14g, Fiber: 6g</span></li>
+        <li><a href="https://gumroad.com/l/week2-day1-lunch" target="_blank" class="locked">Chickpea salad with cucumbers and tomatoes</a>
+            <span class="macros">Calories: 380, Carbs: 45g, Protein: 18g, Fat: 8g, Fiber: 9g</span></li>
+        <li><a href="https://gumroad.com/l/week2-day1-dinner" target="_blank" class="locked">Grilled turkey breast with roasted veggies</a>
+            <span class="macros">Calories: 460, Carbs: 25g, Protein: 40g, Fat: 14g, Fiber: 7g</span></li>
+      </ul>
+    </div>
 
-      <div class="meal-day">
-        <h3>Day 8</h3>
-        <ul>
-          <li><a href="https://gumroad.com/l/day8-breakfast" target="_blank" class="locked">Avocado toast with tomato slices</a><span class="cost">($1.00)</span></li>
-          <li><a href="https://gumroad.com/l/day8-lunch" target="_blank" class="locked">Chicken and vegetable soup</a><span class="cost">($1.00)</span></li>
-          <li><a href="https://gumroad.com/l/day8-dinner" target="_blank" class="locked">Beef stir-fry with veggies</a><span class="cost">($1.00)</span></li>
-        </ul>
-      </div>
+    <div class="meal-day">
+      <h3>Day 2</h3>
+      <ul>
+        <li><a href="https://gumroad.com/l/week2-day2-breakfast" target="_blank" class="locked">Scrambled eggs with salsa and whole grain tortilla</a>
+            <span class="macros">Calories: 300, Carbs: 30g, Protein: 22g, Fat: 12g, Fiber: 4g</span></li>
+        <li><a href="https://gumroad.com/l/week2-day2-lunch" target="_blank" class="locked">Spinach and feta wrap</a>
+            <span class="macros">Calories: 370, Carbs: 40g, Protein: 25g, Fat: 10g, Fiber: 6g</span></li>
+        <li><a href="https://gumroad.com/l/week2-day2-dinner" target="_blank" class="locked">Baked cod with wild rice and asparagus</a>
+            <span class="macros">Calories: 450, Carbs: 35g, Protein: 45g, Fat: 12g, Fiber: 5g</span></li>
+      </ul>
+    </div>
 
-      <div class="meal-day">
-        <h3>Day 9</h3>
-        <ul>
-          <li><a href="https://gumroad.com/l/day9-breakfast" target="_blank" class="locked">Chia seed pudding with mango</a><span class="cost">($1.00)</span></li>
-          <li><a href="https://gumroad.com/l/day9-lunch" target="_blank" class="locked">Turkey sandwich with lettuce and tomato</a><span class="cost">($1.00)</span></li>
-          <li><a href="https://gumroad.com/l/day9-dinner" target="_blank" class="locked">Grilled tilapia with quinoa</a><span class="cost">($1.00)</span></li>
-        </ul>
-      </div>
+    <div class="meal-day">
+      <h3>Day 3</h3>
+      <ul>
+        <li><a href="https://gumroad.com/l/week2-day3-breakfast" target="_blank" class="locked">Smoothie with spinach, banana, and protein powder</a>
+            <span class="macros">Calories: 320, Carbs: 40g, Protein: 25g, Fat: 4g, Fiber: 5g</span></li>
+        <li><a href="https://gumroad.com/l/week2-day3-lunch" target="_blank" class="locked">Chicken Caesar salad wrap</a>
+            <span class="macros">Calories: 400, Carbs: 30g, Protein: 35g, Fat: 15g, Fiber: 6g</span></li>
+        <li><a href="https://gumroad.com/l/week2-day3-dinner" target="_blank" class="locked">Vegetable lasagna with side salad</a>
+            <span class="macros">Calories: 480, Carbs: 50g, Protein: 28g, Fat: 18g, Fiber: 8g</span></li>
+      </ul>
+    </div>
 
-      <div class="meal-day">
-        <h3>Day 10</h3>
-        <ul>
-          <li><a href="https://gumroad.com/l/day10-breakfast" target="_blank" class="locked">Fruit salad with cottage cheese</a><span class="cost">($1.00)</span></li>
-          <li><a href="https://gumroad.com/l/day10-lunch" target="_blank" class="locked">Vegetable wrap with hummus</a><span class="cost">($1.00)</span></li>
-          <li><a href="https://gumroad.com/l/day10-dinner" target="_blank" class="locked">Chicken fajitas with peppers</a><span class="cost">($1.00)</span></li>
-        </ul>
-      </div>
+    <div class="meal-day">
+      <h3>Day 4</h3>
+      <ul>
+        <li><a href="https://gumroad.com/l/week2-day4-breakfast" target="_blank" class="locked">Greek yogurt parfait with granola</a>
+            <span class="macros">Calories: 310, Carbs: 35g, Protein: 18g, Fat: 8g, Fiber: 4g</span></li>
+        <li><a href="https://gumroad.com/l/week2-day4-lunch" target="_blank" class="locked">Tuna wrap with lettuce and tomato</a>
+            <span class="macros">Calories: 360, Carbs: 30g, Protein: 35g, Fat: 10g, Fiber: 5g</span></li>
+        <li><a href="https://gumroad.com/l/week2-day4-dinner" target="_blank" class="locked">Stuffed bell peppers with ground turkey and rice</a>
+            <span class="macros">Calories: 470, Carbs: 45g, Protein: 42g, Fat: 14g, Fiber: 7g</span></li>
+      </ul>
+    </div>
 
-      <div class="meal-day">
-        <h3>Day 11</h3>
-        <ul>
-          <li><a href="https://gumroad.com/l/day11-breakfast" target="_blank" class="locked">Banana and peanut butter smoothie</a><span class="cost">($1.00)</span></li>
-          <li><a href="https://gumroad.com/l/day11-lunch" target="_blank" class="locked">Eggplant parmesan sandwich</a><span class="cost">($1.00)</span></li>
-          <li><a href="https://gumroad.com/l/day11-dinner" target="_blank" class="locked">Shrimp and broccoli stir-fry</a><span class="cost">($1.00)</span></li>
-        </ul>
-      </div>
+    <div class="meal-day">
+      <h3>Day 5</h3>
+      <ul>
+        <li><a href="https://gumroad.com/l/week2-day5-breakfast" target="_blank" class="locked">Banana oatmeal with cinnamon</a>
+            <span class="macros">Calories: 300, Carbs: 50g, Protein: 10g, Fat: 5g, Fiber: 6g</span></li>
+        <li><a href="https://gumroad.com/l/week2-day5-lunch" target="_blank" class="locked">Grilled chicken sandwich on whole wheat</a>
+            <span class="macros">Calories: 400, Carbs: 40g, Protein: 38g, Fat: 12g, Fiber: 6g</span></li>
+        <li><a href="https://gumroad.com/l/week2-day5-dinner" target="_blank" class="locked">Beef chili with kidney beans</a>
+            <span class="macros">Calories: 480, Carbs: 45g, Protein: 42g, Fat: 14g, Fiber: 9g</span></li>
+      </ul>
+    </div>
 
-      <div class="meal-day">
-        <h3>Day 12</h3>
-        <ul>
-          <li><a href="https://gumroad.com/l/day12-breakfast" target="_blank" class="locked">Whole wheat bagel with cream cheese</a><span class="cost">($1.00)</span></li>
-          <li><a href="https://gumroad.com/l/day12-lunch" target="_blank" class="locked">Black bean tacos with salsa</a><span class="cost">($1.00)</span></li>
-          <li><a href="https://gumroad.com/l/day12-dinner" target="_blank" class="locked">Beef stew with carrots and potatoes</a><span class="cost">($1.00)</span></li>
-        </ul>
-      </div>
+    <div class="meal-day">
+      <h3>Day 6</h3>
+      <ul>
+        <li><a href="https://gumroad.com/l/week2-day6-breakfast" target="_blank" class="locked">Egg muffins with veggies</a>
+            <span class="macros">Calories: 290, Carbs: 10g, Protein: 25g, Fat: 15g, Fiber: 3g</span></li>
+        <li><a href="https://gumroad.com/l/week2-day6-lunch" target="_blank" class="locked">Quinoa bowl with roasted chickpeas</a>
+            <span class="macros">Calories: 420, Carbs: 55g, Protein: 20g, Fat: 10g, Fiber: 9g</span></li>
+        <li><a href="https://gumroad.com/l/week2-day6-dinner" target="_blank" class="locked">Shrimp stir-fry with vegetables</a>
+            <span class="macros">Calories: 460, Carbs: 35g, Protein: 40g, Fat: 14g, Fiber: 6g</span></li>
+      </ul>
+    </div>
 
-      <div class="meal-day">
-        <h3>Day 13</h3>
-        <ul>
-          <li><a href="https://gumroad.com/l/day13-breakfast" target="_blank" class="locked">Apple cinnamon oatmeal</a><span class="cost">($1.00)</span></li>
-          <li><a href="https://gumroad.com/l/day13-lunch" target="_blank" class="locked">Caesar salad with grilled chicken</a><span class="cost">($1.00)</span></li>
-          <li><a href="https://gumroad.com/l/day13-dinner" target="_blank" class="locked">Vegetable lasagna</a><span class="cost">($1.00)</span></li>
-        </ul>
-      </div>
+    <div class="meal-day">
+      <h3>Day 7</h3>
+      <ul>
+        <li><a href="https://gumroad.com/l/week2-day7-breakfast" target="_blank" class="locked">Chia pudding with mixed berries</a>
+            <span class="macros">Calories: 320, Carbs: 40g, Protein: 12g, Fat: 10g, Fiber: 7g</span></li>
+        <li><a href="https://gumroad.com/l/week2-day7-lunch" target="_blank" class="locked">Veggie wrap with hummus</a>
+            <span class="macros">Calories: 380, Carbs: 45g, Protein: 18g, Fat: 12g, Fiber: 8g</span></li>
+        <li><a href="https://gumroad.com/l/week2-day7-dinner" target="_blank" class="locked">Grilled chicken with couscous salad</a>
+            <span class="macros">Calories: 450, Carbs: 40g, Protein: 42g, Fat: 14g, Fiber: 7g</span></li>
+      </ul>
+    </div>
 
-      <div class="meal-day">
-        <h3>Day 14</h3>
-        <ul>
-          <li><a href="https://gumroad.com/l/day14-breakfast" target="_blank" class="locked">Whole grain waffles with strawberries</a><span class="cost">($1.00)</span></li>
-          <li><a href="https://gumroad.com/l/day14-lunch" target="_blank" class="locked">Chicken quinoa bowl with veggies</a><span class="cost">($1.00)</span></li>
-          <li><a href="https://gumroad.com/l/day14-dinner" target="_blank" class="locked">Baked cod with asparagus</a><span class="cost">($1.00)</span></li>
-        </ul>
-      </div>
+    <a href="https://gumroad.com/l/week2" target="_blank" class="buy-week-btn">Buy Week 2 Meal Plan</a>
+  </section>
 
-      <a href="https://gumroad.com/l/week2-all" target="_blank" class="buy-week-btn" aria-label="Buy all recipes for Week 2 for $10">Buy Week 2 Recipes - $10</a>
-    </section>
+  <!-- Week 3 -->
+  <section id="week3" class="week">
+    <h2>Week 3 <button class="print-btn" onclick="printWeek('#week3')">Print Week</button></h2>
 
-    <!-- Week 3 -->
-    <section id="week3" class="week">
-      <h2>Week 3 <button class="print-btn" onclick="printWeek('#week3')">Print Week</button></h2>
+    <div class="meal-day">
+      <h3>Day 1</h3>
+      <ul>
+        <li><a href="https://gumroad.com/l/week3-day1-breakfast" target="_blank" class="locked">Banana smoothie with protein powder</a>
+            <span class="macros">Calories: 320, Carbs: 40g, Protein: 25g, Fat: 4g, Fiber: 5g</span></li>
+        <li><a href="https://gumroad.com/l/week3-day1-lunch" target="_blank" class="locked">Turkey and avocado wrap</a>
+            <span class="macros">Calories: 410, Carbs: 35g, Protein: 38g, Fat: 14g, Fiber: 6g</span></li>
+        <li><a href="https://gumroad.com/l/week3-day1-dinner" target="_blank" class="locked">Vegetable stir-fry with brown rice</a>
+            <span class="macros">Calories: 470, Carbs: 55g, Protein: 25g, Fat: 12g, Fiber: 8g</span></li>
+      </ul>
+    </div>
 
-      <div class="meal-day">
-        <h3>Day 15</h3>
-        <ul>
-          <li><a href="https://gumroad.com/l/day15-breakfast" target="_blank" class="locked">Mango smoothie bowl with chia seeds</a><span class="cost">($1.00)</span></li>
-          <li><a href="https://gumroad.com/l/day15-lunch" target="_blank" class="locked">Turkey and avocado sandwich</a><span class="cost">($1.00)</span></li>
-          <li><a href="https://gumroad.com/l/day15-dinner" target="_blank" class="locked">Vegetable stir fry with tofu</a><span class="cost">($1.00)</span></li>
-        </ul>
-      </div>
+    <div class="meal-day">
+      <h3>Day 2</h3>
+      <ul>
+        <li><a href="https://gumroad.com/l/week3-day2-breakfast" target="_blank" class="locked">Egg and cheese whole wheat sandwich</a>
+            <span class="macros">Calories: 300, Carbs: 30g, Protein: 22g, Fat: 10g, Fiber: 5g</span></li>
+        <li><a href="https://gumroad.com/l/week3-day2-lunch" target="_blank" class="locked">Quinoa salad with black beans</a>
+            <span class="macros">Calories: 420, Carbs: 50g, Protein: 20g, Fat: 12g, Fiber: 8g</span></li>
+        <li><a href="https://gumroad.com/l/week3-day2-dinner" target="_blank" class="locked">Grilled chicken with steamed veggies</a>
+            <span class="macros">Calories: 460, Carbs: 25g, Protein: 42g, Fat: 14g, Fiber: 6g</span></li>
+      </ul>
+    </div>
 
-      <div class="meal-day">
-        <h3>Day 16</h3>
-        <ul>
-          <li><a href="https://gumroad.com/l/day16-breakfast" target="_blank" class="locked">Peach yogurt parfait</a><span class="cost">($1.00)</span></li>
-          <li><a href="https://gumroad.com/l/day16-lunch" target="_blank" class="locked">Chickpea salad pita</a><span class="cost">($1.00)</span></li>
-          <li><a href="https://gumroad.com/l/day16-dinner" target="_blank" class="locked">Chicken curry with rice</a><span class="cost">($1.00)</span></li>
-        </ul>
-      </div>
+    <div class="meal-day">
+      <h3>Day 3</h3>
+      <ul>
+        <li><a href="https://gumroad.com/l/week3-day3-breakfast" target="_blank" class="locked">Overnight oats with berries</a>
+            <span class="macros">Calories: 310, Carbs: 40g, Protein: 15g, Fat: 6g, Fiber: 7g</span></li>
+        <li><a href="https://gumroad.com/l/week3-day3-lunch" target="_blank" class="locked">Chicken and avocado salad</a>
+            <span class="macros">Calories: 400, Carbs: 30g, Protein: 38g, Fat: 15g, Fiber: 5g</span></li>
+        <li><a href="https://gumroad.com/l/week3-day3-dinner" target="_blank" class="locked">Pasta with marinara sauce and meatballs</a>
+            <span class="macros">Calories: 480, Carbs: 50g, Protein: 35g, Fat: 18g, Fiber: 6g</span></li>
+      </ul>
+    </div>
 
-      <div class="meal-day">
-        <h3>Day 17</h3>
-        <ul>
-          <li><a href="https://gumroad.com/l/day17-breakfast" target="_blank" class="locked">Banana oat pancakes</a><span class="cost">($1.00)</span></li>
-          <li><a href="https://gumroad.com/l/day17-lunch" target="_blank" class="locked">Vegetable soup with bread roll</a><span class="cost">($1.00)</span></li>
-          <li><a href="https://gumroad.com/l/day17-dinner" target="_blank" class="locked">Beef and broccoli</a><span class="cost">($1.00)</span></li>
-        </ul>
-      </div>
+    <div class="meal-day">
+      <h3>Day 4</h3>
+      <ul>
+        <li><a href="https://gumroad.com/l/week3-day4-breakfast" target="_blank" class="locked">Greek yogurt with honey and walnuts</a>
+            <span class="macros">Calories: 320, Carbs: 35g, Protein: 20g, Fat: 10g, Fiber: 4g</span></li>
+        <li><a href="https://gumroad.com/l/week3-day4-lunch" target="_blank" class="locked">Tuna salad with mixed greens</a>
+            <span class="macros">Calories: 370, Carbs: 30g, Protein: 35g, Fat: 11g, Fiber: 5g</span></li>
+        <li><a href="https://gumroad.com/l/week3-day4-dinner" target="_blank" class="locked">Stuffed zucchini boats with turkey</a>
+            <span class="macros">Calories: 460, Carbs: 40g, Protein: 42g, Fat: 15g, Fiber: 7g</span></li>
+      </ul>
+    </div>
 
-      <div class="meal-day">
-        <h3>Day 18</h3>
-        <ul>
-          <li><a href="https://gumroad.com/l/day18-breakfast" target="_blank" class="locked">Scrambled tofu with veggies</a><span class="cost">($1.00)</span></li>
-          <li><a href="https://gumroad.com/l/day18-lunch" target="_blank" class="locked">Chicken Caesar wrap</a><span class="cost">($1.00)</span></li>
-          <li><a href="https://gumroad.com/l/day18-dinner" target="_blank" class="locked">Baked ziti with cheese</a><span class="cost">($1.00)</span></li>
-        </ul>
-      </div>
+    <div class="meal-day">
+      <h3>Day 5</h3>
+      <ul>
+        <li><a href="https://gumroad.com/l/week3-day5-breakfast" target="_blank" class="locked">Berry smoothie with spinach</a>
+            <span class="macros">Calories: 310, Carbs: 35g, Protein: 25g, Fat: 4g, Fiber: 6g</span></li>
+        <li><a href="https://gumroad.com/l/week3-day5-lunch" target="_blank" class="locked">Grilled salmon salad</a>
+            <span class="macros">Calories: 420, Carbs: 30g, Protein: 40g, Fat: 14g, Fiber: 5g</span></li>
+        <li><a href="https://gumroad.com/l/week3-day5-dinner" target="_blank" class="locked">Chicken stir-fry with vegetables</a>
+            <span class="macros">Calories: 470, Carbs: 40g, Protein: 45g, Fat: 16g, Fiber: 7g</span></li>
+      </ul>
+    </div>
 
-      <div class="meal-day">
-        <h3>Day 19</h3>
-        <ul>
-          <li><a href="https://gumroad.com/l/day19-breakfast" target="_blank" class="locked">Fruit smoothie with spinach</a><span class="cost">($1.00)</span></li>
-          <li><a href="https://gumroad.com/l/day19-lunch" target="_blank" class="locked">Grilled cheese sandwich</a><span class="cost">($1.00)</span></li>
-          <li><a href="https://gumroad.com/l/day19-dinner" target="_blank" class="locked">Chicken stir-fry with noodles</a><span class="cost">($1.00)</span></li>
-        </ul>
-      </div>
+    <div class="meal-day">
+      <h3>Day 6</h3>
+      <ul>
+        <li><a href="https://gumroad.com/l/week3-day6-breakfast" target="_blank" class="locked">Omelette with veggies</a>
+            <span class="macros">Calories: 300, Carbs: 15g, Protein: 30g, Fat: 14g, Fiber: 4g</span></li>
+        <li><a href="https://gumroad.com/l/week3-day6-lunch" target="_blank" class="locked">Quinoa and black bean bowl</a>
+            <span class="macros">Calories: 430, Carbs: 50g, Protein: 25g, Fat: 12g, Fiber: 8g</span></li>
+        <li><a href="https://gumroad.com/l/week3-day6-dinner" target="_blank" class="locked">Grilled shrimp with mixed vegetables</a>
+            <span class="macros">Calories: 460, Carbs: 35g, Protein: 40g, Fat: 14g, Fiber: 6g</span></li>
+      </ul>
+    </div>
 
-      <div class="meal-day">
-        <h3>Day 20</h3>
-        <ul>
-          <li><a href="https://gumroad.com/l/day20-breakfast" target="_blank" class="locked">Whole grain cereal with milk</a><span class="cost">($1.00)</span></li>
-          <li><a href="https://gumroad.com/l/day20-lunch" target="_blank" class="locked">Tuna pasta salad</a><span class="cost">($1.00)</span></li>
-          <li><a href="https://gumroad.com/l/day20-dinner" target="_blank" class="locked">Stuffed bell peppers</a><span class="cost">($1.00)</span></li>
-        </ul>
-      </div>
+    <div class="meal-day">
+      <h3>Day 7</h3>
+      <ul>
+        <li><a href="https://gumroad.com/l/week3-day7-breakfast" target="_blank" class="locked">Chia seed pudding with mango</a>
+            <span class="macros">Calories: 320, Carbs: 40g, Protein: 12g, Fat: 10g, Fiber: 7g</span></li>
+        <li><a href="https://gumroad.com/l/week3-day7-lunch" target="_blank" class="locked">Veggie wrap with hummus</a>
+            <span class="macros">Calories: 380, Carbs: 45g, Protein: 18g, Fat: 12g, Fiber: 8g</span></li>
+        <li><a href="https://gumroad.com/l/week3-day7-dinner" target="_blank" class="locked">Grilled chicken with couscous salad</a>
+            <span class="macros">Calories: 450, Carbs: 40g, Protein: 42g, Fat: 14g, Fiber: 7g</span></li>
+      </ul>
+    </div>
 
-      <div class="meal-day">
-        <h3>Day 21</h3>
-        <ul>
-          <li><a href="https://gumroad.com/l/day21-breakfast" target="_blank" class="locked">Yogurt with honey and walnuts</a><span class="cost">($1.00)</span></li>
-          <li><a href="https://gumroad.com/l/day21-lunch" target="_blank" class="locked">Chicken and avocado salad</a><span class="cost">($1.00)</span></li>
-          <li><a href="https://gumroad.com/l/day21-dinner" target="_blank" class="locked">Vegetable fried rice</a><span class="cost">($1.00)</span></li>
-        </ul>
-      </div>
+    <a href="https://gumroad.com/l/week3" target="_blank" class="buy-week-btn">Buy Week 3 Meal Plan</a>
+  </section>Looks like you have access to detailed meal plans for Weeks 2 and 3, with daily meals that include calories, carbs, protein, fat, and fiber info. Each day breaks down breakfast, lunch, and dinner options.
 
-      <a href="https://gumroad.com/l/week3-all" target="_blank" class="buy-week-btn" aria-label="Buy all recipes for Week 3 for $10">Buy Week 3 Recipes - $10</a>
-    </section>
+If you want, I can help you:
+- Pick meals that fit certain calorie or macro goals
+- Create a customized daily menu from the options here
+- Suggest meal swaps based on preferences or restrictions
+- Summarize the macros for a full day or week
 
-    <!-- Week 4 -->
-    <section id="week4" class="week">
-      <h2>Week 4 <button class="print-btn" onclick="printWeek('#week4')">Print Week</button></h2>
-
-      <div class="meal-day">
-        <h3>Day 22</h3>
-        <ul>
-          <li><a href="https://gumroad.com/l/day22-breakfast" target="_blank" class="locked">Chia pudding with blueberries</a><span class="cost">($1.00)</span></li>
-          <li><a href="https://gumroad.com/l/day22-lunch" target="_blank" class="locked">Quinoa and black bean salad</a><span class="cost">($1.00)</span></li>
-          <li><a href="https://gumroad.com/l/day22-dinner" target="_blank" class="locked">Baked chicken thighs with green beans</a><span class="cost">($1.00)</span></li>
-        </ul>
-      </div>
-
-      <div class="meal-day">
-        <h3>Day 23</h3>
-        <ul>
-          <li><a href="https://gumroad.com/l/day23-breakfast" target="_blank" class="locked">Peanut butter banana smoothie</a><span class="cost">($1.00)</span></li>
-          <li><a href="https://gumroad.com/l/day23-lunch" target="_blank" class="locked">Vegetable sushi rolls</a><span class="cost">($1.00)</span></li>
-          <li><a href="https://gumroad.com/l/day23-dinner" target="_blank" class="locked">Spaghetti with marinara sauce</a><span class="cost">($1.00)</span></li>
-        </ul>
-      </div>
-
-      <div class="meal-day">
-        <h3>Day 24</h3>
-        <ul>
-          <li><a href="https://gumroad.com/l/day24-breakfast" target="_blank" class="locked">Greek yogurt with honey and almonds</a><span class="cost">($1.00)</span></li>
-          <li><a href="https://gumroad.com/l/day24-lunch" target="_blank" class="locked">Chicken Caesar salad</a><span class="cost">($1.00)</span></li>
-          <li><a href="https://gumroad.com/l/day24-dinner" target="_blank" class="locked">Beef tacos with lettuce and cheese</a><span class="cost">($1.00)</span></li>
-        </ul>
-      </div>
-
-      <div class="meal-day">
-        <h3>Day 25</h3>
-        <ul>
-          <li><a href="https://gumroad.com/l/day25-breakfast" target="_blank" class="locked">Whole grain toast with jam</a><span class="cost">($1.00)</span></li>
-          <li><a href="https://gumroad.com/l/day25-lunch" target="_blank" class="locked">Lentil soup with bread</a><span class="cost">($1.00)</span></li>
-          <li><a href="https://gumroad.com/l/day25-dinner" target="_blank" class="locked">Grilled shrimp with vegetable skewers</a><span class="cost">($1.00)</span></li>
-        </ul>
-      </div>
-
-      <div class="meal-day">
-        <h3>Day 26</h3>
-        <ul>
-          <li><a href="https://gumroad.com/l/day26-breakfast" target="_blank" class="locked">Fruit and nut granola</a><span class="cost">($1.00)</span></li>
-          <li><a href="https://gumroad.com/l/day26-lunch" target="_blank" class="locked">Chicken pita with tzatziki</a><span class="cost">($1.00)</span></li>
-          <li><a href="https://gumroad.com/l/day26-dinner" target="_blank" class="locked">Vegetable pasta primavera</a><span class="cost">($1.00)</span></li>
-        </ul>
-      </div>
-
-      <div class="meal-day">
-        <h3>Day 27</h3>
-        <ul>
-          <li><a href="https://gumroad.com/l/day27-breakfast" target="_blank" class="locked">Smoothie with kale and pineapple</a><span class="cost">($1.00)</span></li>
-          <li><a href="https://gumroad.com/l/day27-lunch" target="_blank" class="locked">Tuna salad wrap</a><span class="cost">($1.00)</span></li>
-          <li><a href="https://gumroad.com/l/day27-dinner" target="_blank" class="locked">Baked salmon with quinoa and veggies</a><span class="cost">($1.00)</span></li>
-        </ul>
-      </div>
-
-      <div class="meal-day">
-        <h3>Day 28</h3>
-        <ul>
-          <li><a href="https://gumroad.com/l/day28-breakfast" target="_blank" class="locked">Oatmeal with raisins and cinnamon</a><span class="cost">($1.00)</span></li>
-          <li><a href="https://gumroad.com/l/day28-lunch" target="_blank" class="locked">Vegetable stir-fry with tofu</a><span class="cost">($1.00)</span></li>
-          <li><a href="https://gumroad.com/l/day28-dinner" target="_blank" class="locked">Roast beef with mashed potatoes</a><span class="cost">($1.00)</span></li>
-        </ul>
-      </div>
-
-      <a href="https://gumroad.com/l/week4-all" target="_blank" class="buy-week-btn" aria-label="Buy all recipes for Week 4 for $10">Buy Week 4 Recipes - $10</a>
-    </section>
-
-  </main>
-
-  <footer>
-    &copy; 2025 Affordable Meal Plans. All rights reserved.
-  </footer>
-
-  <script>
-    function printWeek(selector) {
-      const content = document.querySelector(selector).innerHTML;
-      const originalContent = document.body.innerHTML;
-      document.body.innerHTML = content;
-      window.print();
-      document.body.innerHTML = originalContent;
-      location.reload(); // Reload page to restore event listeners & styling
-    }
-  </script>
-</body>
-</html>
-
-</body>
-</html>
-
+What are you aiming for? Or do you want me to highlight some of the healthiest or highest-protein options?
