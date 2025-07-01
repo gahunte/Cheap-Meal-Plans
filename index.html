@@ -7,104 +7,119 @@
   <style>
     body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: #f7f9fc;
-      color: #333;
-      margin: 0; padding: 20px;
+      background-color: #2ecc71; /* Green background restored */
+      color: #fff;
+      margin: 0;
+      padding: 0 20px 50px;
+      max-width: 900px;
+      margin-left: auto;
+      margin-right: auto;
     }
     h1 {
       text-align: center;
-      color: #2d6a4f;
+      margin-top: 30px;
+      font-size: 2.6em;
+      font-weight: 700;
+      text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
     }
     p.subtitle {
       text-align: center;
-      font-style: italic;
-      margin-top: 5px;
-      color: #52796f;
+      font-size: 1.1em;
+      margin-top: -10px;
+      margin-bottom: 30px;
+      font-weight: 600;
+      text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
     }
-    section.week {
-      background: white;
+    .week {
+      background: rgba(0, 0, 0, 0.2);
       border-radius: 10px;
-      margin: 30px auto;
-      max-width: 800px;
-      padding: 20px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      padding: 20px 25px 30px;
+      margin-bottom: 40px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.15);
     }
     h2 {
+      font-size: 1.8em;
+      margin-bottom: 15px;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      color: #40916c;
+      font-weight: 700;
+    }
+    .print-btn {
+      background-color: #27ae60;
+      border: none;
+      color: white;
+      padding: 8px 14px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: 600;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+      transition: background-color 0.3s ease;
+    }
+    .print-btn:hover {
+      background-color: #219150;
     }
     .meal-day {
-      margin-bottom: 20px;
+      margin-bottom: 25px;
     }
-    .meal-day h3 {
-      border-bottom: 2px solid #b7e4c7;
-      padding-bottom: 5px;
-      color: #2d6a4f;
+    h3 {
+      font-size: 1.3em;
+      margin-bottom: 8px;
+      font-weight: 700;
     }
     ul {
       list-style-type: none;
-      padding-left: 10px;
+      padding-left: 0;
     }
     li {
-      margin: 10px 0;
+      margin-bottom: 8px;
+      font-size: 1.1em;
     }
     a.locked {
+      color: #dff0d8;
       text-decoration: none;
-      color: #1b4332;
-      font-weight: 600;
+      font-weight: 700;
       cursor: pointer;
+      border-bottom: 2px dotted #a3d3a2;
+      transition: color 0.2s ease;
     }
     a.locked:hover {
-      text-decoration: underline;
-      color: #40916c;
+      color: #b7e0a9;
     }
     .macros {
-      font-family: 'Courier New', Courier, monospace;
-      font-size: 0.9em;
-      color: #52796f;
-      margin-left: 15px;
       display: block;
-      margin-top: 3px;
+      font-size: 0.9em;
+      font-style: italic;
+      margin-left: 20px;
+      color: #c8e6c9;
+      font-family: 'Courier New', Courier, monospace;
+      letter-spacing: 0.02em;
     }
     .buy-week-btn {
-      display: block;
-      width: fit-content;
-      margin: 15px auto 0;
-      background-color: #52b788;
+      display: inline-block;
+      background-color: #27ae60;
       color: white;
-      padding: 12px 25px;
-      border-radius: 25px;
       font-weight: 700;
-      text-align: center;
+      padding: 12px 24px;
+      border-radius: 7px;
       text-decoration: none;
+      margin-top: 10px;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.25);
       transition: background-color 0.3s ease;
     }
     .buy-week-btn:hover {
-      background-color: #40916c;
-    }
-    button.print-btn {
-      background-color: #74c69d;
-      border: none;
-      padding: 6px 15px;
-      border-radius: 15px;
-      color: white;
-      cursor: pointer;
-      font-weight: 600;
-    }
-    button.print-btn:hover {
-      background-color: #40916c;
+      background-color: #219150;
     }
   </style>
   <script>
-    function printWeek(weekId) {
-      const printContent = document.querySelector(weekId).innerHTML;
-      const originalContent = document.body.innerHTML;
-      document.body.innerHTML = printContent;
+    function printWeek(weekSelector) {
+      const printContents = document.querySelector(weekSelector).innerHTML;
+      const originalContents = document.body.innerHTML;
+
+      document.body.innerHTML = printContents;
       window.print();
-      document.body.innerHTML = originalContent;
-      location.reload();
+      document.body.innerHTML = originalContents;
+      window.location.reload();
     }
   </script>
 </head>
