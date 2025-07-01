@@ -7,80 +7,111 @@
   <style>
     body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      max-width: 900px;
-      margin: 0 auto;
-      padding: 20px;
       background: #f7f9fc;
       color: #333;
+      margin: 0; padding: 20px;
     }
-    h1, h2, h3 {
-      color: #2a7a2a;
+    h1 {
+      text-align: center;
+      color: #2d6a4f;
+    }
+    p.subtitle {
+      text-align: center;
+      font-style: italic;
+      margin-top: 5px;
+      color: #52796f;
+    }
+    section.week {
+      background: white;
+      border-radius: 10px;
+      margin: 30px auto;
+      max-width: 800px;
+      padding: 20px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+    h2 {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: #40916c;
+    }
+    .meal-day {
+      margin-bottom: 20px;
+    }
+    .meal-day h3 {
+      border-bottom: 2px solid #b7e4c7;
+      padding-bottom: 5px;
+      color: #2d6a4f;
     }
     ul {
       list-style-type: none;
-      padding-left: 0;
+      padding-left: 10px;
     }
     li {
-      margin-bottom: 10px;
+      margin: 10px 0;
     }
     a.locked {
-      color: #cc0000;
       text-decoration: none;
+      color: #1b4332;
       font-weight: 600;
+      cursor: pointer;
     }
     a.locked:hover {
       text-decoration: underline;
+      color: #40916c;
     }
     .macros {
       font-family: 'Courier New', Courier, monospace;
-      font-size: 0.9rem;
-      color: #555;
-      margin-left: 20px;
+      font-size: 0.9em;
+      color: #52796f;
+      margin-left: 15px;
       display: block;
-      font-weight: 500;
-      font-style: italic;
-    }
-    .week {
-      background: #e6f2e6;
-      border-radius: 8px;
-      padding: 15px 25px;
-      margin-bottom: 40px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-    }
-    .meal-day {
-      margin-bottom: 25px;
-    }
-    .print-btn {
-      background: #2a7a2a;
-      color: white;
-      border: none;
-      padding: 6px 12px;
-      border-radius: 4px;
-      cursor: pointer;
-      font-size: 0.9rem;
-      margin-left: 10px;
-    }
-    .print-btn:hover {
-      background: #1f5f1f;
+      margin-top: 3px;
     }
     .buy-week-btn {
-      display: inline-block;
-      background: #28a745;
+      display: block;
+      width: fit-content;
+      margin: 15px auto 0;
+      background-color: #52b788;
       color: white;
-      padding: 12px 20px;
-      border-radius: 6px;
-      font-weight: bold;
+      padding: 12px 25px;
+      border-radius: 25px;
+      font-weight: 700;
+      text-align: center;
       text-decoration: none;
-      margin-top: 15px;
-      transition: background 0.3s ease;
+      transition: background-color 0.3s ease;
     }
     .buy-week-btn:hover {
-      background: #1e7e34;
+      background-color: #40916c;
+    }
+    button.print-btn {
+      background-color: #74c69d;
+      border: none;
+      padding: 6px 15px;
+      border-radius: 15px;
+      color: white;
+      cursor: pointer;
+      font-weight: 600;
+    }
+    button.print-btn:hover {
+      background-color: #40916c;
     }
   </style>
+  <script>
+    function printWeek(weekId) {
+      const printContent = document.querySelector(weekId).innerHTML;
+      const originalContent = document.body.innerHTML;
+      document.body.innerHTML = printContent;
+      window.print();
+      document.body.innerHTML = originalContent;
+      location.reload();
+    }
+  </script>
 </head>
 <body>
+
   <h1>Delicious & Affordable Meal Plans for Everyone!</h1>
+  <p class="subtitle">Click on any meal to purchase its recipe for just $1.</p>
 
   <!-- Week 1 -->
   <section id="week1" class="week">
@@ -90,16 +121,16 @@
       <h3>Day 1</h3>
       <ul>
         <li>
-          <a href="https://gumroad.com/l/week1-day1-breakfast" target="_blank" class="locked">Scrambled eggs with toast</a><br />
-          <span class="macros">Calories: 300, Carbs: 30g, Protein: 20g, Fat: 10g, Fiber: 3g</span>
+          <a href="https://gumroad.com/l/week1-day1-breakfast" target="_blank" class="locked">Avocado toast with eggs</a>
+          <span class="macros">Calories: 350, Carbs: 40g, Protein: 22g, Fat: 15g, Fiber: 6g</span>
         </li>
         <li>
-          <a href="https://gumroad.com/l/week1-day1-lunch" target="_blank" class="locked">Chicken salad sandwich</a><br />
-          <span class="macros">Calories: 400, Carbs: 35g, Protein: 40g, Fat: 12g, Fiber: 5g</span>
+          <a href="https://gumroad.com/l/week1-day1-lunch" target="_blank" class="locked">Chicken and vegetable stir fry</a>
+          <span class="macros">Calories: 420, Carbs: 35g, Protein: 45g, Fat: 12g, Fiber: 7g</span>
         </li>
         <li>
-          <a href="https://gumroad.com/l/week1-day1-dinner" target="_blank" class="locked">Spaghetti with meat sauce</a><br />
-          <span class="macros">Calories: 500, Carbs: 55g, Protein: 45g, Fat: 15g, Fiber: 6g</span>
+          <a href="https://gumroad.com/l/week1-day1-dinner" target="_blank" class="locked">Beef tacos with salsa</a>
+          <span class="macros">Calories: 480, Carbs: 45g, Protein: 40g, Fat: 18g, Fiber: 6g</span>
         </li>
       </ul>
     </div>
@@ -108,16 +139,16 @@
       <h3>Day 2</h3>
       <ul>
         <li>
-          <a href="https://gumroad.com/l/week1-day2-breakfast" target="_blank" class="locked">Smoothie with banana and spinach</a><br />
-          <span class="macros">Calories: 320, Carbs: 45g, Protein: 25g, Fat: 5g, Fiber: 7g</span>
+          <a href="https://gumroad.com/l/week1-day2-breakfast" target="_blank" class="locked">Berry smoothie bowl</a>
+          <span class="macros">Calories: 320, Carbs: 40g, Protein: 25g, Fat: 5g, Fiber: 8g</span>
         </li>
         <li>
-          <a href="https://gumroad.com/l/week1-day2-lunch" target="_blank" class="locked">Turkey wrap with veggies</a><br />
-          <span class="macros">Calories: 380, Carbs: 40g, Protein: 35g, Fat: 10g, Fiber: 6g</span>
+          <a href="https://gumroad.com/l/week1-day2-lunch" target="_blank" class="locked">Turkey and cheese sandwich</a>
+          <span class="macros">Calories: 400, Carbs: 40g, Protein: 38g, Fat: 12g, Fiber: 5g</span>
         </li>
         <li>
-          <a href="https://gumroad.com/l/week1-day2-dinner" target="_blank" class="locked">Grilled salmon with rice</a><br />
-          <span class="macros">Calories: 450, Carbs: 35g, Protein: 45g, Fat: 12g, Fiber: 5g</span>
+          <a href="https://gumroad.com/l/week1-day2-dinner" target="_blank" class="locked">Baked chicken with sweet potatoes</a>
+          <span class="macros">Calories: 460, Carbs: 40g, Protein: 45g, Fat: 14g, Fiber: 6g</span>
         </li>
       </ul>
     </div>
@@ -126,16 +157,16 @@
       <h3>Day 3</h3>
       <ul>
         <li>
-          <a href="https://gumroad.com/l/week1-day3-breakfast" target="_blank" class="locked">Oatmeal with berries</a><br />
-          <span class="macros">Calories: 310, Carbs: 40g, Protein: 15g, Fat: 6g, Fiber: 7g</span>
+          <a href="https://gumroad.com/l/week1-day3-breakfast" target="_blank" class="locked">Oatmeal with apples and cinnamon</a>
+          <span class="macros">Calories: 310, Carbs: 45g, Protein: 15g, Fat: 6g, Fiber: 7g</span>
         </li>
         <li>
-          <a href="https://gumroad.com/l/week1-day3-lunch" target="_blank" class="locked">Chicken and avocado salad</a><br />
-          <span class="macros">Calories: 400, Carbs: 30g, Protein: 38g, Fat: 15g, Fiber: 5g</span>
+          <a href="https://gumroad.com/l/week1-day3-lunch" target="_blank" class="locked">Grilled shrimp salad</a>
+          <span class="macros">Calories: 400, Carbs: 30g, Protein: 40g, Fat: 12g, Fiber: 5g</span>
         </li>
         <li>
-          <a href="https://gumroad.com/l/week1-day3-dinner" target="_blank" class="locked">Pasta with marinara sauce and meatballs</a><br />
-          <span class="macros">Calories: 480, Carbs: 50g, Protein: 35g, Fat: 18g, Fiber: 6g</span>
+          <a href="https://gumroad.com/l/week1-day3-dinner" target="_blank" class="locked">Pasta primavera</a>
+          <span class="macros">Calories: 480, Carbs: 55g, Protein: 35g, Fat: 14g, Fiber: 6g</span>
         </li>
       </ul>
     </div>
@@ -144,16 +175,16 @@
       <h3>Day 4</h3>
       <ul>
         <li>
-          <a href="https://gumroad.com/l/week1-day4-breakfast" target="_blank" class="locked">Greek yogurt with honey and walnuts</a><br />
-          <span class="macros">Calories: 320, Carbs: 35g, Protein: 20g, Fat: 10g, Fiber: 4g</span>
+          <a href="https://gumroad.com/l/week1-day4-breakfast" target="_blank" class="locked">Scrambled eggs with spinach</a>
+          <span class="macros">Calories: 320, Carbs: 30g, Protein: 25g, Fat: 10g, Fiber: 5g</span>
         </li>
         <li>
-          <a href="https://gumroad.com/l/week1-day4-lunch" target="_blank" class="locked">Tuna salad with mixed greens</a><br />
-          <span class="macros">Calories: 370, Carbs: 30g, Protein: 35g, Fat: 11g, Fiber: 5g</span>
+          <a href="https://gumroad.com/l/week1-day4-lunch" target="_blank" class="locked">Quinoa and black bean salad</a>
+          <span class="macros">Calories: 400, Carbs: 45g, Protein: 38g, Fat: 11g, Fiber: 6g</span>
         </li>
         <li>
-          <a href="https://gumroad.com/l/week1-day4-dinner" target="_blank" class="locked">Stuffed zucchini boats with turkey</a><br />
-          <span class="macros">Calories: 460, Carbs: 40g, Protein: 42g, Fat: 15g, Fiber: 7g</span>
+          <a href="https://gumroad.com/l/week1-day4-dinner" target="_blank" class="locked">Beef stir-fry with vegetables</a>
+          <span class="macros">Calories: 480, Carbs: 35g, Protein: 45g, Fat: 15g, Fiber: 6g</span>
         </li>
       </ul>
     </div>
@@ -162,16 +193,16 @@
       <h3>Day 5</h3>
       <ul>
         <li>
-          <a href="https://gumroad.com/l/week1-day5-breakfast" target="_blank" class="locked">Berry smoothie with spinach</a><br />
-          <span class="macros">Calories: 310, Carbs: 35g, Protein: 25g, Fat: 4g, Fiber: 6g</span>
+          <a href="https://gumroad.com/l/week1-day5-breakfast" target="_blank" class="locked">Whole wheat pancakes with berries</a>
+          <span class="macros">Calories: 350, Carbs: 50g, Protein: 20g, Fat: 7g, Fiber: 5g</span>
         </li>
         <li>
-          <a href="https://gumroad.com/l/week1-day5-lunch" target="_blank" class="locked">Grilled salmon salad</a><br />
-          <span class="macros">Calories: 420, Carbs: 30g, Protein: 40g, Fat: 14g, Fiber: 5g</span>
+          <a href="https://gumroad.com/l/week1-day5-lunch" target="_blank" class="locked">Tuna sandwich on rye bread</a>
+          <span class="macros">Calories: 400, Carbs: 40g, Protein: 38g, Fat: 12g, Fiber: 6g</span>
         </li>
         <li>
-          <a href="https://gumroad.com/l/week1-day5-dinner" target="_blank" class="locked">Chicken stir-fry with vegetables</a><br />
-          <span class="macros">Calories: 470, Carbs: 40g, Protein: 45g, Fat: 16g, Fiber: 7g</span>
+          <a href="https://gumroad.com/l/week1-day5-dinner" target="_blank" class="locked">Lentil soup with whole grain bread</a>
+          <span class="macros">Calories: 450, Carbs: 50g, Protein: 35g, Fat: 10g, Fiber: 9g</span>
         </li>
       </ul>
     </div>
@@ -180,16 +211,16 @@
       <h3>Day 6</h3>
       <ul>
         <li>
-          <a href="https://gumroad.com/l/week1-day6-breakfast" target="_blank" class="locked">Omelette with veggies</a><br />
-          <span class="macros">Calories: 300, Carbs: 15g, Protein: 30g, Fat: 14g, Fiber: 4g</span>
+          <a href="https://gumroad.com/l/week1-day6-breakfast" target="_blank" class="locked">Egg and cheese breakfast burrito</a>
+          <span class="macros">Calories: 320, Carbs: 35g, Protein: 25g, Fat: 10g, Fiber: 5g</span>
         </li>
         <li>
-          <a href="https://gumroad.com/l/week1-day6-lunch" target="_blank" class="locked">Quinoa and black bean bowl</a><br />
-          <span class="macros">Calories: 430, Carbs: 50g, Protein: 25g, Fat: 12g, Fiber: 8g</span>
+          <a href="https://gumroad.com/l/week1-day6-lunch" target="_blank" class="locked">Chicken quinoa bowl</a>
+          <span class="macros">Calories: 420, Carbs: 40g, Protein: 45g, Fat: 10g, Fiber: 6g</span>
         </li>
         <li>
-          <a href="https://gumroad.com/l/week1-day6-dinner" target="_blank" class="locked">Grilled shrimp with mixed vegetables</a><br />
-          <span class="macros">Calories: 460, Carbs: 35g, Protein: 40g, Fat: 14g, Fiber: 6g</span>
+          <a href="https://gumroad.com/l/week1-day6-dinner" target="_blank" class="locked">Shrimp pasta with veggies</a>
+          <span class="macros">Calories: 470, Carbs: 45g, Protein: 40g, Fat: 12g, Fiber: 7g</span>
         </li>
       </ul>
     </div>
@@ -198,15 +229,15 @@
       <h3>Day 7</h3>
       <ul>
         <li>
-          <a href="https://gumroad.com/l/week1-day7-breakfast" target="_blank" class="locked">Chia seed pudding with mango</a><br />
-          <span class="macros">Calories: 320, Carbs: 40g, Protein: 12g, Fat: 10g, Fiber: 7g</span>
+          <a href="https://gumroad.com/l/week1-day7-breakfast" target="_blank" class="locked">Chia pudding with almond milk and fruit</a>
+          <span class="macros">Calories: 310, Carbs: 40g, Protein: 15g, Fat: 10g, Fiber: 7g</span>
         </li>
         <li>
-          <a href="https://gumroad.com/l/week1-day7-lunch" target="_blank" class="locked">Veggie wrap with hummus</a><br />
-          <span class="macros">Calories: 380, Carbs: 45g, Protein: 18g, Fat: 12g, Fiber: 8g</span>
+          <a href="https://gumroad.com/l/week1-day7-lunch" target="_blank" class="locked">Veggie and hummus wrap</a>
+          <span class="macros">Calories: 380, Carbs: 45g, Protein: 20g, Fat: 12g, Fiber: 8g</span>
         </li>
         <li>
-          <a href="https://gumroad.com/l/week1-day7-dinner" target="_blank" class="locked">Grilled chicken with couscous salad</a><br />
+          <a href="https://gumroad.com/l/week1-day7-dinner" target="_blank" class="locked">Grilled chicken with couscous salad</a>
           <span class="macros">Calories: 450, Carbs: 40g, Protein: 42g, Fat: 14g, Fiber: 7g</span>
         </li>
       </ul>
@@ -223,16 +254,16 @@
       <h3>Day 1</h3>
       <ul>
         <li>
-          <a href="https://gumroad.com/l/week2-day1-breakfast" target="_blank" class="locked">Greek yogurt with berries and granola</a><br />
-          <span class="macros">Calories: 320, Carbs: 40g, Protein: 25g, Fat: 6g, Fiber: 5g</span>
+          <a href="https://gumroad.com/l/week2-day1-breakfast" target="_blank" class="locked">Greek yogurt with granola and berries</a>
+          <span class="macros">Calories: 330, Carbs: 35g, Protein: 28g, Fat: 7g, Fiber: 6g</span>
         </li>
         <li>
-          <a href="https://gumroad.com/l/week2-day1-lunch" target="_blank" class="locked">Turkey sandwich on whole wheat bread</a><br />
-          <span class="macros">Calories: 410, Carbs: 45g, Protein: 35g, Fat: 10g, Fiber: 6g</span>
+          <a href="https://gumroad.com/l/week2-day1-lunch" target="_blank" class="locked">Grilled chicken Caesar salad</a>
+          <span class="macros">Calories: 420, Carbs: 30g, Protein: 45g, Fat: 12g, Fiber: 5g</span>
         </li>
         <li>
-          <a href="https://gumroad.com/l/week2-day1-dinner" target="_blank" class="locked">Grilled salmon with quinoa and broccoli</a><br />
-          <span class="macros">Calories: 480, Carbs: 40g, Protein: 45g, Fat: 15g, Fiber: 7g</span>
+          <a href="https://gumroad.com/l/week2-day1-dinner" target="_blank" class="locked">Salmon with brown rice and broccoli</a>
+          <span class="macros">Calories: 490, Carbs: 40g, Protein: 50g, Fat: 14g, Fiber: 7g</span>
         </li>
       </ul>
     </div>
@@ -241,16 +272,16 @@
       <h3>Day 2</h3>
       <ul>
         <li>
-          <a href="https://gumroad.com/l/week2-day2-breakfast" target="_blank" class="locked">Oatmeal with banana and peanut butter</a><br />
-          <span class="macros">Calories: 350, Carbs: 45g, Protein: 12g, Fat: 10g, Fiber: 4g</span>
+          <a href="https://gumroad.com/l/week2-day2-breakfast" target="_blank" class="locked">Banana peanut butter smoothie</a>
+          <span class="macros">Calories: 340, Carbs: 40g, Protein: 25g, Fat: 8g, Fiber: 5g</span>
         </li>
         <li>
-          <a href="https://gumroad.com/l/week2-day2-lunch" target="_blank" class="locked">Spinach and feta wrap</a><br />
-          <span class="macros">Calories: 370, Carbs: 40g, Protein: 28g, Fat: 10g, Fiber: 5g</span>
+          <a href="https://gumroad.com/l/week2-day2-lunch" target="_blank" class="locked">Veggie burger with sweet potato fries</a>
+          <span class="macros">Calories: 450, Carbs: 50g, Protein: 38g, Fat: 12g, Fiber: 8g</span>
         </li>
         <li>
-          <a href="https://gumroad.com/l/week2-day2-dinner" target="_blank" class="locked">Baked cod with wild rice and asparagus</a><br />
-          <span class="macros">Calories: 450, Carbs: 35g, Protein: 45g, Fat: 12g, Fiber: 5g</span>
+          <a href="https://gumroad.com/l/week2-day2-dinner" target="_blank" class="locked">Turkey chili with beans</a>
+          <span class="macros">Calories: 470, Carbs: 40g, Protein: 45g, Fat: 14g, Fiber: 7g</span>
         </li>
       </ul>
     </div>
@@ -259,16 +290,16 @@
       <h3>Day 3</h3>
       <ul>
         <li>
-          <a href="https://gumroad.com/l/week2-day3-breakfast" target="_blank" class="locked">Scrambled eggs with whole grain toast</a><br />
-          <span class="macros">Calories: 310, Carbs: 30g, Protein: 22g, Fat: 10g, Fiber: 4g</span>
+          <a href="https://gumroad.com/l/week2-day3-breakfast" target="_blank" class="locked">Scrambled tofu with veggies</a>
+          <span class="macros">Calories: 320, Carbs: 30g, Protein: 25g, Fat: 10g, Fiber: 6g</span>
         </li>
         <li>
-          <a href="https://gumroad.com/l/week2-day3-lunch" target="_blank" class="locked">Quinoa salad with chickpeas</a><br />
-          <span class="macros">Calories: 390, Carbs: 45g, Protein: 30g, Fat: 9g, Fiber: 7g</span>
+          <a href="https://gumroad.com/l/week2-day3-lunch" target="_blank" class="locked">Quinoa salad with chickpeas</a>
+          <span class="macros">Calories: 400, Carbs: 45g, Protein: 38g, Fat: 11g, Fiber: 8g</span>
         </li>
         <li>
-          <a href="https://gumroad.com/l/week2-day3-dinner" target="_blank" class="locked">Turkey chili with brown rice</a><br />
-          <span class="macros">Calories: 460, Carbs: 40g, Protein: 50g, Fat: 12g, Fiber: 6g</span>
+          <a href="https://gumroad.com/l/week2-day3-dinner" target="_blank" class="locked">Grilled steak with asparagus</a>
+          <span class="macros">Calories: 480, Carbs: 30g, Protein: 45g, Fat: 15g, Fiber: 5g</span>
         </li>
       </ul>
     </div>
@@ -277,16 +308,16 @@
       <h3>Day 4</h3>
       <ul>
         <li>
-          <a href="https://gumroad.com/l/week2-day4-breakfast" target="_blank" class="locked">Fruit salad with cottage cheese</a><br />
-          <span class="macros">Calories: 300, Carbs: 35g, Protein: 20g, Fat: 4g, Fiber: 6g</span>
+          <a href="https://gumroad.com/l/week2-day4-breakfast" target="_blank" class="locked">Oatmeal with nuts and honey</a>
+          <span class="macros">Calories: 330, Carbs: 40g, Protein: 20g, Fat: 10g, Fiber: 6g</span>
         </li>
         <li>
-          <a href="https://gumroad.com/l/week2-day4-lunch" target="_blank" class="locked">Grilled chicken Caesar wrap</a><br />
-          <span class="macros">Calories: 400, Carbs: 40g, Protein: 38g, Fat: 11g, Fiber: 5g</span>
+          <a href="https://gumroad.com/l/week2-day4-lunch" target="_blank" class="locked">Chicken wrap with veggies</a>
+          <span class="macros">Calories: 400, Carbs: 40g, Protein: 40g, Fat: 12g, Fiber: 7g</span>
         </li>
         <li>
-          <a href="https://gumroad.com/l/week2-day4-dinner" target="_blank" class="locked">Beef stir-fry with vegetables</a><br />
-          <span class="macros">Calories: 480, Carbs: 35g, Protein: 45g, Fat: 15g, Fiber: 6g</span>
+          <a href="https://gumroad.com/l/week2-day4-dinner" target="_blank" class="locked">Pasta with marinara sauce</a>
+          <span class="macros">Calories: 470, Carbs: 50g, Protein: 35g, Fat: 14g, Fiber: 6g</span>
         </li>
       </ul>
     </div>
@@ -295,16 +326,16 @@
       <h3>Day 5</h3>
       <ul>
         <li>
-          <a href="https://gumroad.com/l/week2-day5-breakfast" target="_blank" class="locked">Whole wheat pancakes with berries</a><br />
-          <span class="macros">Calories: 350, Carbs: 50g, Protein: 20g, Fat: 7g, Fiber: 5g</span>
+          <a href="https://gumroad.com/l/week2-day5-breakfast" target="_blank" class="locked">Greek yogurt with honey and almonds</a>
+          <span class="macros">Calories: 340, Carbs: 35g, Protein: 28g, Fat: 8g, Fiber: 5g</span>
         </li>
         <li>
-          <a href="https://gumroad.com/l/week2-day5-lunch" target="_blank" class="locked">Tuna sandwich on rye bread</a><br />
-          <span class="macros">Calories: 400, Carbs: 40g, Protein: 38g, Fat: 12g, Fiber: 6g</span>
+          <a href="https://gumroad.com/l/week2-day5-lunch" target="_blank" class="locked">Tuna salad with mixed greens</a>
+          <span class="macros">Calories: 400, Carbs: 30g, Protein: 38g, Fat: 12g, Fiber: 6g</span>
         </li>
         <li>
-          <a href="https://gumroad.com/l/week2-day5-dinner" target="_blank" class="locked">Lentil soup with whole grain bread</a><br />
-          <span class="macros">Calories: 450, Carbs: 50g, Protein: 35g, Fat: 10g, Fiber: 9g</span>
+          <a href="https://gumroad.com/l/week2-day5-dinner" target="_blank" class="locked">Vegetable curry with rice</a>
+          <span class="macros">Calories: 460, Carbs: 55g, Protein: 35g, Fat: 10g, Fiber: 8g</span>
         </li>
       </ul>
     </div>
@@ -313,16 +344,16 @@
       <h3>Day 6</h3>
       <ul>
         <li>
-          <a href="https://gumroad.com/l/week2-day6-breakfast" target="_blank" class="locked">Egg and cheese breakfast burrito</a><br />
-          <span class="macros">Calories: 320, Carbs: 35g, Protein: 25g, Fat: 10g, Fiber: 5g</span>
+          <a href="https://gumroad.com/l/week2-day6-breakfast" target="_blank" class="locked">Egg white omelet with tomatoes</a>
+          <span class="macros">Calories: 320, Carbs: 30g, Protein: 25g, Fat: 8g, Fiber: 6g</span>
         </li>
         <li>
-          <a href="https://gumroad.com/l/week2-day6-lunch" target="_blank" class="locked">Chicken quinoa bowl</a><br />
-          <span class="macros">Calories: 420, Carbs: 40g, Protein: 45g, Fat: 10g, Fiber: 6g</span>
+          <a href="https://gumroad.com/l/week2-day6-lunch" target="_blank" class="locked">Grilled chicken and couscous</a>
+          <span class="macros">Calories: 420, Carbs: 40g, Protein: 45g, Fat: 10g, Fiber: 5g</span>
         </li>
         <li>
-          <a href="https://gumroad.com/l/week2-day6-dinner" target="_blank" class="locked">Shrimp pasta with veggies</a><br />
-          <span class="macros">Calories: 470, Carbs: 45g, Protein: 40g, Fat: 12g, Fiber: 7g</span>
+          <a href="https://gumroad.com/l/week2-day6-dinner" target="_blank" class="locked">Shrimp tacos with slaw</a>
+          <span class="macros">Calories: 470, Carbs: 40g, Protein: 40g, Fat: 12g, Fiber: 6g</span>
         </li>
       </ul>
     </div>
@@ -331,15 +362,15 @@
       <h3>Day 7</h3>
       <ul>
         <li>
-          <a href="https://gumroad.com/l/week2-day7-breakfast" target="_blank" class="locked">Chia pudding with almond milk and fruit</a><br />
+          <a href="https://gumroad.com/l/week2-day7-breakfast" target="_blank" class="locked">Chia seed pudding with berries</a>
           <span class="macros">Calories: 310, Carbs: 40g, Protein: 15g, Fat: 10g, Fiber: 7g</span>
         </li>
         <li>
-          <a href="https://gumroad.com/l/week2-day7-lunch" target="_blank" class="locked">Veggie and hummus wrap</a><br />
+          <a href="https://gumroad.com/l/week2-day7-lunch" target="_blank" class="locked">Veggie wrap with hummus</a>
           <span class="macros">Calories: 380, Carbs: 45g, Protein: 20g, Fat: 12g, Fiber: 8g</span>
         </li>
         <li>
-          <a href="https://gumroad.com/l/week2-day7-dinner" target="_blank" class="locked">Grilled chicken with couscous salad</a><br />
+          <a href="https://gumroad.com/l/week2-day7-dinner" target="_blank" class="locked">Grilled chicken salad with avocado</a>
           <span class="macros">Calories: 450, Carbs: 40g, Protein: 42g, Fat: 14g, Fiber: 7g</span>
         </li>
       </ul>
@@ -356,16 +387,16 @@
       <h3>Day 1</h3>
       <ul>
         <li>
-          <a href="https://gumroad.com/l/week3-day1-breakfast" target="_blank" class="locked">Avocado toast with eggs</a><br />
-          <span class="macros">Calories: 350, Carbs: 40g, Protein: 22g, Fat: 15g, Fiber: 6g</span>
+          <a href="https://gumroad.com/l/week3-day1-breakfast" target="_blank" class="locked">Smoothie with spinach and banana</a>
+          <span class="macros">Calories: 330, Carbs: 40g, Protein: 28g, Fat: 7g, Fiber: 6g</span>
         </li>
         <li>
-          <a href="https://gumroad.com/l/week3-day1-lunch" target="_blank" class="locked">Chicken and vegetable stir fry</a><br />
-          <span class="macros">Calories: 420, Carbs: 35g, Protein: 45g, Fat: 12g, Fiber: 7g</span>
+          <a href="https://gumroad.com/l/week3-day1-lunch" target="_blank" class="locked">Turkey and avocado sandwich</a>
+          <span class="macros">Calories: 420, Carbs: 35g, Protein: 45g, Fat: 12g, Fiber: 5g</span>
         </li>
         <li>
-          <a href="https://gumroad.com/l/week3-day1-dinner" target="_blank" class="locked">Beef tacos with salsa</a><br />
-          <span class="macros">Calories: 480, Carbs: 45g, Protein: 40g, Fat: 18g, Fiber: 6g</span>
+          <a href="https://gumroad.com/l/week3-day1-dinner" target="_blank" class="locked">Baked cod with quinoa and greens</a>
+          <span class="macros">Calories: 490, Carbs: 40g, Protein: 50g, Fat: 14g, Fiber: 7g</span>
         </li>
       </ul>
     </div>
@@ -374,16 +405,16 @@
       <h3>Day 2</h3>
       <ul>
         <li>
-          <a href="https://gumroad.com/l/week3-day2-breakfast" target="_blank" class="locked">Berry smoothie bowl</a><br />
-          <span class="macros">Calories: 320, Carbs: 40g, Protein: 25g, Fat: 5g, Fiber: 8g</span>
+          <a href="https://gumroad.com/l/week3-day2-breakfast" target="_blank" class="locked">Peanut butter toast with banana</a>
+          <span class="macros">Calories: 340, Carbs: 40g, Protein: 25g, Fat: 8g, Fiber: 5g</span>
         </li>
         <li>
-          <a href="https://gumroad.com/l/week3-day2-lunch" target="_blank" class="locked">Turkey and cheese sandwich</a><br />
-          <span class="macros">Calories: 400, Carbs: 40g, Protein: 38g, Fat: 12g, Fiber: 5g</span>
+          <a href="https://gumroad.com/l/week3-day2-lunch" target="_blank" class="locked">Chicken salad with walnuts</a>
+          <span class="macros">Calories: 450, Carbs: 45g, Protein: 38g, Fat: 12g, Fiber: 8g</span>
         </li>
         <li>
-          <a href="https://gumroad.com/l/week3-day2-dinner" target="_blank" class="locked">Baked chicken with sweet potatoes</a><br />
-          <span class="macros">Calories: 460, Carbs: 40g, Protein: 45g, Fat: 14g, Fiber: 6g</span>
+          <a href="https://gumroad.com/l/week3-day2-dinner" target="_blank" class="locked">Beef and vegetable stew</a>
+          <span class="macros">Calories: 470, Carbs: 40g, Protein: 45g, Fat: 14g, Fiber: 7g</span>
         </li>
       </ul>
     </div>
@@ -392,16 +423,16 @@
       <h3>Day 3</h3>
       <ul>
         <li>
-          <a href="https://gumroad.com/l/week3-day3-breakfast" target="_blank" class="locked">Oatmeal with apples and cinnamon</a><br />
-          <span class="macros">Calories: 310, Carbs: 45g, Protein: 15g, Fat: 6g, Fiber: 7g</span>
+          <a href="https://gumroad.com/l/week3-day3-breakfast" target="_blank" class="locked">Egg muffin with veggies</a>
+          <span class="macros">Calories: 320, Carbs: 30g, Protein: 25g, Fat: 10g, Fiber: 6g</span>
         </li>
         <li>
-          <a href="https://gumroad.com/l/week3-day3-lunch" target="_blank" class="locked">Grilled shrimp salad</a><br />
-          <span class="macros">Calories: 400, Carbs: 30g, Protein: 40g, Fat: 12g, Fiber: 5g</span>
+          <a href="https://gumroad.com/l/week3-day3-lunch" target="_blank" class="locked">Quinoa and kale salad</a>
+          <span class="macros">Calories: 400, Carbs: 45g, Protein: 38g, Fat: 11g, Fiber: 8g</span>
         </li>
         <li>
-          <a href="https://gumroad.com/l/week3-day3-dinner" target="_blank" class="locked">Pasta primavera</a><br />
-          <span class="macros">Calories: 480, Carbs: 55g, Protein: 35g, Fat: 14g, Fiber: 6g</span>
+          <a href="https://gumroad.com/l/week3-day3-dinner" target="_blank" class="locked">Grilled salmon with asparagus</a>
+          <span class="macros">Calories: 480, Carbs: 30g, Protein: 45g, Fat: 15g, Fiber: 5g</span>
         </li>
       </ul>
     </div>
@@ -410,16 +441,16 @@
       <h3>Day 4</h3>
       <ul>
         <li>
-          <a href="https://gumroad.com/l/week3-day4-breakfast" target="_blank" class="locked">Scrambled eggs with spinach</a><br />
-          <span class="macros">Calories: 320, Carbs: 30g, Protein: 25g, Fat: 10g, Fiber: 5g</span>
+          <a href="https://gumroad.com/l/week3-day4-breakfast" target="_blank" class="locked">Oatmeal with blueberries and walnuts</a>
+          <span class="macros">Calories: 330, Carbs: 40g, Protein: 20g, Fat: 10g, Fiber: 6g</span>
         </li>
         <li>
-          <a href="https://gumroad.com/l/week3-day4-lunch" target="_blank" class="locked">Quinoa and black bean salad</a><br />
-          <span class="macros">Calories: 400, Carbs: 45g, Protein: 38g, Fat: 11g, Fiber: 6g</span>
+          <a href="https://gumroad.com/l/week3-day4-lunch" target="_blank" class="locked">Chicken wrap with spinach</a>
+          <span class="macros">Calories: 400, Carbs: 40g, Protein: 40g, Fat: 12g, Fiber: 7g</span>
         </li>
         <li>
-          <a href="https://gumroad.com/l/week3-day4-dinner" target="_blank" class="locked">Beef stir-fry with vegetables</a><br />
-          <span class="macros">Calories: 480, Carbs: 35g, Protein: 45g, Fat: 15g, Fiber: 6g</span>
+          <a href="https://gumroad.com/l/week3-day4-dinner" target="_blank" class="locked">Pasta with tomato sauce</a>
+          <span class="macros">Calories: 470, Carbs: 50g, Protein: 35g, Fat: 14g, Fiber: 6g</span>
         </li>
       </ul>
     </div>
@@ -428,16 +459,16 @@
       <h3>Day 5</h3>
       <ul>
         <li>
-          <a href="https://gumroad.com/l/week3-day5-breakfast" target="_blank" class="locked">Whole wheat pancakes with berries</a><br />
-          <span class="macros">Calories: 350, Carbs: 50g, Protein: 20g, Fat: 7g, Fiber: 5g</span>
+          <a href="https://gumroad.com/l/week3-day5-breakfast" target="_blank" class="locked">Greek yogurt with strawberries</a>
+          <span class="macros">Calories: 340, Carbs: 35g, Protein: 28g, Fat: 8g, Fiber: 5g</span>
         </li>
         <li>
-          <a href="https://gumroad.com/l/week3-day5-lunch" target="_blank" class="locked">Tuna sandwich on rye bread</a><br />
-          <span class="macros">Calories: 400, Carbs: 40g, Protein: 38g, Fat: 12g, Fiber: 6g</span>
+          <a href="https://gumroad.com/l/week3-day5-lunch" target="_blank" class="locked">Tuna salad with lettuce</a>
+          <span class="macros">Calories: 400, Carbs: 30g, Protein: 38g, Fat: 12g, Fiber: 6g</span>
         </li>
         <li>
-          <a href="https://gumroad.com/l/week3-day5-dinner" target="_blank" class="locked">Lentil soup with whole grain bread</a><br />
-          <span class="macros">Calories: 450, Carbs: 50g, Protein: 35g, Fat: 10g, Fiber: 9g</span>
+          <a href="https://gumroad.com/l/week3-day5-dinner" target="_blank" class="locked">Vegetable curry with brown rice</a>
+          <span class="macros">Calories: 460, Carbs: 55g, Protein: 35g, Fat: 10g, Fiber: 8g</span>
         </li>
       </ul>
     </div>
@@ -446,16 +477,16 @@
       <h3>Day 6</h3>
       <ul>
         <li>
-          <a href="https://gumroad.com/l/week3-day6-breakfast" target="_blank" class="locked">Egg and cheese breakfast burrito</a><br />
-          <span class="macros">Calories: 320, Carbs: 35g, Protein: 25g, Fat: 10g, Fiber: 5g</span>
+          <a href="https://gumroad.com/l/week3-day6-breakfast" target="_blank" class="locked">Egg white omelet with spinach</a>
+          <span class="macros">Calories: 320, Carbs: 30g, Protein: 25g, Fat: 8g, Fiber: 6g</span>
         </li>
         <li>
-          <a href="https://gumroad.com/l/week3-day6-lunch" target="_blank" class="locked">Chicken quinoa bowl</a><br />
-          <span class="macros">Calories: 420, Carbs: 40g, Protein: 45g, Fat: 10g, Fiber: 6g</span>
+          <a href="https://gumroad.com/l/week3-day6-lunch" target="_blank" class="locked">Grilled chicken with quinoa</a>
+          <span class="macros">Calories: 420, Carbs: 40g, Protein: 45g, Fat: 10g, Fiber: 5g</span>
         </li>
         <li>
-          <a href="https://gumroad.com/l/week3-day6-dinner" target="_blank" class="locked">Shrimp pasta with veggies</a><br />
-          <span class="macros">Calories: 470, Carbs: 45g, Protein: 40g, Fat: 12g, Fiber: 7g</span>
+          <a href="https://gumroad.com/l/week3-day6-dinner" target="_blank" class="locked">Shrimp tacos with slaw</a>
+          <span class="macros">Calories: 470, Carbs: 40g, Protein: 40g, Fat: 12g, Fiber: 6g</span>
         </li>
       </ul>
     </div>
@@ -464,15 +495,15 @@
       <h3>Day 7</h3>
       <ul>
         <li>
-          <a href="https://gumroad.com/l/week3-day7-breakfast" target="_blank" class="locked">Chia pudding with almond milk and fruit</a><br />
+          <a href="https://gumroad.com/l/week3-day7-breakfast" target="_blank" class="locked">Chia seed pudding with almond milk</a>
           <span class="macros">Calories: 310, Carbs: 40g, Protein: 15g, Fat: 10g, Fiber: 7g</span>
         </li>
         <li>
-          <a href="https://gumroad.com/l/week3-day7-lunch" target="_blank" class="locked">Veggie and hummus wrap</a><br />
+          <a href="https://gumroad.com/l/week3-day7-lunch" target="_blank" class="locked">Veggie wrap with hummus</a>
           <span class="macros">Calories: 380, Carbs: 45g, Protein: 20g, Fat: 12g, Fiber: 8g</span>
         </li>
         <li>
-          <a href="https://gumroad.com/l/week3-day7-dinner" target="_blank" class="locked">Grilled chicken with couscous salad</a><br />
+          <a href="https://gumroad.com/l/week3-day7-dinner" target="_blank" class="locked">Grilled chicken salad with avocado</a>
           <span class="macros">Calories: 450, Carbs: 40g, Protein: 42g, Fat: 14g, Fiber: 7g</span>
         </li>
       </ul>
@@ -480,79 +511,6 @@
 
     <a href="https://gumroad.com/l/week3" target="_blank" class="buy-week-btn">Buy Week 3 Meal Plan</a>
   </section>
-</main>Sure! Here's a detailed sample 7-day meal plan with breakfast, lunch, and dinner ideas, each including calorie counts and macros (carbs, protein, fat, fiber):
 
----
-
-### Day 1
-- **Breakfast:** Avocado toast with eggs  
-  Calories: 350 | Carbs: 40g | Protein: 22g | Fat: 15g | Fiber: 6g
-- **Lunch:** Chicken and vegetable stir fry  
-  Calories: 420 | Carbs: 35g | Protein: 45g | Fat: 12g | Fiber: 7g
-- **Dinner:** Beef tacos with salsa  
-  Calories: 480 | Carbs: 45g | Protein: 40g | Fat: 18g | Fiber: 6g
-
----
-
-### Day 2
-- **Breakfast:** Berry smoothie bowl  
-  Calories: 320 | Carbs: 40g | Protein: 25g | Fat: 5g | Fiber: 8g
-- **Lunch:** Turkey and cheese sandwich  
-  Calories: 400 | Carbs: 40g | Protein: 38g | Fat: 12g | Fiber: 5g
-- **Dinner:** Baked chicken with sweet potatoes  
-  Calories: 460 | Carbs: 40g | Protein: 45g | Fat: 14g | Fiber: 6g
-
----
-
-### Day 3
-- **Breakfast:** Oatmeal with apples and cinnamon  
-  Calories: 310 | Carbs: 45g | Protein: 15g | Fat: 6g | Fiber: 7g
-- **Lunch:** Grilled shrimp salad  
-  Calories: 400 | Carbs: 30g | Protein: 40g | Fat: 12g | Fiber: 5g
-- **Dinner:** Pasta primavera  
-  Calories: 480 | Carbs: 55g | Protein: 35g | Fat: 14g | Fiber: 6g
-
----
-
-### Day 4
-- **Breakfast:** Scrambled eggs with spinach  
-  Calories: 320 | Carbs: 30g | Protein: 25g | Fat: 10g | Fiber: 5g
-- **Lunch:** Quinoa and black bean salad  
-  Calories: 400 | Carbs: 45g | Protein: 38g | Fat: 11g | Fiber: 6g
-- **Dinner:** Beef stir-fry with vegetables  
-  Calories: 480 | Carbs: 35g | Protein: 45g | Fat: 15g | Fiber: 6g
-
----
-
-### Day 5
-- **Breakfast:** Whole wheat pancakes with berries  
-  Calories: 350 | Carbs: 50g | Protein: 20g | Fat: 7g | Fiber: 5g
-- **Lunch:** Tuna sandwich on rye bread  
-  Calories: 400 | Carbs: 40g | Protein: 38g | Fat: 12g | Fiber: 6g
-- **Dinner:** Lentil soup with whole grain bread  
-  Calories: 450 | Carbs: 50g | Protein: 35g | Fat: 10g | Fiber: 9g
-
----
-
-### Day 6
-- **Breakfast:** Egg and cheese breakfast burrito  
-  Calories: 320 | Carbs: 35g | Protein: 25g | Fat: 10g | Fiber: 5g
-- **Lunch:** Chicken quinoa bowl  
-  Calories: 420 | Carbs: 40g | Protein: 45g | Fat: 10g | Fiber: 6g
-- **Dinner:** Shrimp pasta with veggies  
-  Calories: 470 | Carbs: 45g | Protein: 40g | Fat: 12g | Fiber: 7g
-
----
-
-### Day 7
-- **Breakfast:** Chia pudding with almond milk and fruit  
-  Calories: 310 | Carbs: 40g | Protein: 15g | Fat: 10g | Fiber: 7g
-- **Lunch:** Veggie and hummus wrap  
-  Calories: 380 | Carbs: 45g | Protein: 20g | Fat: 12g | Fiber: 8g
-- **Dinner:** Grilled chicken with couscous salad  
-  Calories: 450 | Carbs: 40g | Protein: 42g | Fat: 14g | Fiber: 7g
-
----
-
-If you want, I can help you customize this meal plan based on your preferences or goals! What kind of foods or macros are you aiming for?
-
+</body>
+</html>
