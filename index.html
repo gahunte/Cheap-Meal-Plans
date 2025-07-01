@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>4‑Week Budget Meal Plan</title>
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+    body{font-family:Arial,sans-serif;background:#f4f4f9;color:#333;line-height:1.5;}
+    .container{max-width:800px;margin:2rem auto;padding:0 1rem;}
+    header{text-align:center;margin-bottom:2rem;}
+    header h1{color:#27ae60;font-size:2rem;margin-bottom:.5rem;}
+    header p{font-size:1.1rem;color:#555;}
+    .week{background:#fff;margin-bottom:2rem;padding:1.5rem;border-radius:8px;box-shadow:0 2px 5px rgba(0,0,0,.1);}
+    .week h2{margin-bottom:.5rem;color:#27ae60;font-size:1.5rem;position:relative;}
+    .print-btn{position:absolute;top:0;right:0;background:#27ae60;color:#fff;border:none;padding:.4rem .8rem;border-radius:4px;cursor:pointer;}
+    .print-btn:hover{background:#219150;}
+    .meal-day{margin-bottom:1rem;}
+    .meal-day h3{margin-bottom:.3rem;font-size:1.2rem;color:#333;}
+    .meal-list li{margin-bottom:.3rem;}
+    .cost{font-weight:bold;color:#888;margin-left:.4rem;}
+    .grocery,.email-signup{background:#fff;padding:1.5rem;border-radius:8px;box-shadow:0 2px 5px rgba(0,0,0,.1);margin-bottom:2rem;}
+    .grocery h2,.email-signup h2{color:#27ae60;margin-bottom:.5rem;}
+    .grocery ul{list-style-position:inside;}
+    .email-signup form{display:flex;flex-wrap:wrap;}
+    .email-signup input[type=email]{flex:1;padding:.6rem;margin-right:.5rem;border:1px solid #ccc;border-radius:4px;}
+    .email-signup input[type=submit]{background:#27ae60;color:#fff;border:none;padding:.6rem 1rem;border-radius:4px;cursor:pointer;}
+    .email-signup input[type=submit]:hover{background:#219150;}
+    footer{text-align:center;color:#777;font-size:.9rem;margin:2rem 0;}
+    @media print{body {background:#fff;}header,footer,.print-btn,.email-signup{display:none;} .week{box-shadow:none;margin:0;}}
+  </style>
+  <script>
+    function printWeek(id){ const orig=document.body.innerHTML; const content=document.querySelector(id).outerHTML; document.body.innerHTML=content; window.print(); document.body.innerHTML=orig; location.reload();}
+  </script>
+</head>
+<body>
+
+<header>
+  <h1>4‑Week Budget Meal Plan</h1>
+  <p>Simple, healthy meals for under $6/day</p>
+</header>
+
+<div class="container">
+
+  <section class="email-signup">
+    <h2>Get Weekly Meal Plans by Email</h2>
+    <form action="YOUR_MAILCHIMP_FORM_URL" method="post" target="_blank">
+      <input type="email" name="EMAIL" placeholder="Enter your email" required/>
+      <input type="submit" value="Subscribe"/>
+    </form>
+  </section>
+
+  <!-- Weeks 1–4 -->
+  <!-- Helper to avoid repetition: each day has unique meals -->
+
+  <!-- Week 1 -->
+  <section id="week1" class="week">
+    <h2>Week 1 <button class="print-btn" onclick="printWeek('#week1')">Print Week</button></h2>
+    <div class="meal-day"><h3>Day 1</h3><ul class="meal-list"><li>Breakfast: Peanut butter toast + banana<span class="cost">($1.00)</span></li><li>Lunch: Tuna sandwich + apple<span class="cost">($2.00)</span></li><li>Dinner: Rice, beans & sautéed spinach<span class="cost">($2.50)</span></li></ul></div>
+    <div class="meal-day"><h3>Day 2</h3><ul class="meal-list"><li>Breakfast: Oatmeal with apple slices<span class="cost">($1.00)</span></li><li>Lunch: Grilled cheese + carrot sticks<span class="cost">($1.75)</span></li><li>Dinner: Spaghetti with tomato sauce + broccoli<span class="cost">($2.75)</span></li></ul></div>
+    <div class="meal-day"><h3>Day 3</h3><ul class="meal-list"><li>Breakfast: Scrambled eggs + toast<span class="cost">($1.25)</span></li><li>Lunch: Rice + black beans + salsa<span class="cost">($1.75)</span></li><li>Dinner: Baked potatoes + steamed veggies<span class="cost">($2.50)</span></li></ul></div>
+    <div class="meal-day"><h3>Day 4</h3><ul class="meal-list"><li>Breakfast: Greek yogurt with oats<span class="cost">($1.25)</span></li><li>Lunch: Pasta salad with beans & corn<span class="cost">($2.00)</span></li><li>Dinner: Stir-fry rice + mixed veggies<span class="cost">($2.75)</span></li></ul></div>
+    <div class="meal-day"><h3>Day 5</h3><ul class="meal-list"><li>Breakfast: Toast & fruit<span class="cost">($1.00)</span></li><li>Lunch: Lentil soup + toast<span class="cost">($2.00)</span></li><li>Dinner: Chicken thighs + roasted potatoes<span class="cost">($3.00)</span></li></ul></div>
+    <div class="meal-day"><h3>Day 6</h3><ul class="meal-list"><li>Breakfast: Oatmeal with banana<span class="cost">($1.00)</span></li><li>Lunch: Leftover lentil soup + sandwich<span class="cost">($2.00)</span></li><li>Dinner: Bean & cheese quesadilla<span class="cost">($2.50)</span></li></ul></div>
+    <div class="meal-day"><h3>Day 7</h3><ul class="meal-list"><li>Breakfast: Eggs + toast + orange<span class="cost">($1.50)</span></li><li>Lunch: Pasta with leftover veggies<span class="cost">($2.00)</span></li><li>Dinner: Fried rice with egg & peas<span class="cost">($2.50)</span></li></ul></div>
+  </section>
+
+  <!-- Week 2 -->
+  <section id="week2" class="week">
+    <h2>Week 2 <button class="print-btn" onclick="printWeek('#week2')">Print Week</button></h2>
+    <div class="meal-day"><h3>Day 1</h3><ul class="meal-list"><li>Breakfast: Chia pudding with berries<span class="cost">($1.20)</span></li><li>Lunch: Egg salad sandwich<span class="cost">($1.80)</span></li><li>Dinner: Lentil stew + rice<span class="cost">($2.50)</span></li></ul></div>
+    <div class="meal-day"><h3>Day 2</h3><ul class="meal-list"><li>Breakfast: Smoothie (banana+spinach)<span class="cost">($1.00)</span></li><li>Lunch: Chickpea wrap<span class="cost">($2.00)</span></li><li>Dinner: Veggie chili + cornbread<span class="cost">($2.75)</span></li></ul></div>
+    <div class="meal-day"><h3>Day 3</h3><ul class="meal-list"><li>Breakfast: Cottage cheese + pineapple<span class="cost">($1.50)</span></li><li>Lunch: Turkey sandwich + cucumber<span class="cost">($2.25)</span></li><li>Dinner: Baked tilapia + rice + beans<span class="cost">($3.00)</span></li></ul></div>
+    <div class="meal-day"><h3>Day 4</h3><ul class="meal-list"><li>Breakfast: Toast with avocado<span class="cost">($1.50)</span></li><li>Lunch: Quinoa salad with veggies<span class="cost">($2.50)</span></li><li>Dinner: Chicken stir-fry + rice<span class="cost">($2.75)</span></li></ul></div>
+    <div class="meal-day"><h3>Day 5</h3><ul class="meal-list"><li>Breakfast: Yogurt parfait with oats<span class="cost">($1.25)</span></li><li>Lunch: Tuna pasta salad<span class="cost">($2.00)</span></li><li>Dinner: Beef & bean burrito<span class="cost">($2.75)</span></li></ul></div>
+    <div class="meal-day"><h3>Day 6</h3><ul class="meal-list"><li>Breakfast: Scrambled eggs + veggies<span class="cost">($1.50)</span></li><li>Lunch: Fruit & nut oatmeal bars<span class="cost">($1.75)</span></li><li>Dinner: Vegetable curry + rice<span class="cost">($2.75)</span></li></ul></div>
+    <div class="meal-day"><h3>Day 7</h3><ul class="meal-list"><li>Breakfast: Bagel + cream cheese<span class="cost">($1.50)</span></li><li>Lunch: Veggie soup + bread<span class="cost">($2.00)</span></li><li>Dinner: Shrimp fried rice<span class="cost">($3.00)</span></li></ul></div>
+  </section>
+
+  <!-- Week 3 -->
+  <section id="week3" class="week">
+    <h2>Week 3 <button class="print-btn" onclick="printWeek('#week3')">Print Week</button></h2>
+    <div class="meal-day"><h3>Day 1</h3><ul class="meal-list"><li>Breakfast: French toast + fruit<span class="cost">($1.50)</span></li><li>Lunch: Hummus wrap<span class="cost">($2.00)</span></li><li>Dinner: Stuffed peppers with rice & beans<span class="cost">($2.75)</span></li></ul></div>
+    <div class="meal-day"><h3>Day 2</h3><ul class="meal-list"><li>Breakfast: Oatmeal with pumpkin spice<span class="cost">($1.10)</span></li><li>Lunch: Chicken salad sandwich<span class="cost">($2.25)</span></li><li>Dinner: Beef stew + potatoes<span class="cost">($3.00)</span></li></ul></div>
+    <div class="meal-day"><h3>Day 3</h3><ul class="meal-list"><li>Breakfast: Smoothie bowl<span class="cost">($1.50)</span></li><li>Lunch: Rice bowl with tofu & veggies<span class="cost">($2.25)</span></li><li>Dinner: Pasta with spinach pesto<span class="cost">($2.75)</span></li></ul></div>
+    <div class="meal-day"><h3>Day 4</h3><ul class="meal-list"><li>Breakfast: Egg muffin cups<span class="cost">($1.30)</span></li><li>Lunch: Lentil salad<span class="cost">($2.00)</span></li><li>Dinner: Salmon + quinoa + broccoli<span class="cost">($3.25)</span></li></ul></div>
+    <div class="meal-day"><h3>Day 5</h3><ul class="meal-list"><li>Breakfast: Peanut butter oatmeal<span class="cost">($1.20)</span></li><li>Lunch: Turkey wrap<span class="cost">($2.25)</span></li><li>Dinner: Veggie lasagna<span class="cost">($2.75)</span></li></ul></div>
+    <div class="meal-day"><h3>Day 6</h3><ul class="meal-list"><li>Breakfast: Yogurt + granola<span class="cost">($1.25)</span></li><li>Lunch: Black bean burrito<span class="cost">($2.00)</span></li><li>Dinner: Chicken fajitas<span class="cost">($3.00)</span></ul></div>
+    <div class="meal-day"><h3>Day 7</h3><ul class="meal-list"><li>Breakfast: Toast & jam + fruit<span class="cost">($1.00)</span></li><li>Lunch: Quinoa soup<span class="cost">($2.00)</span></li><li>Dinner: Shrimp tacos<span class="cost">($3.00)</span></li></ul></div>
+  </section>
+
+  <!-- Week 4 -->
+  <section id="week4" class="week">
+    <h2>Week 4 <button class="print-btn" onclick="printWeek('#week4')">Print Week</button></h2>
+    <div class="meal-day"><h3>Day 1</h3><ul class="meal-list"><li>Breakfast: Breakfast burrito<span class="cost">($1.50)</span></li><li>Lunch: Veggie pasta salad<span class="cost">($2.00)</span></li><li>Dinner: Salmon patties + rice<span class="cost">($3.25)</span></li></ul></div>
+    <div class="meal-day"><h3>Day 2</h3><ul class="meal-list"><li>Breakfast: Toast with peanut butter & honey<span class="cost">($1.00)</span></li><li>Lunch: Chicken noodle soup<span class="cost">($2.25)</span></li><li>Dinner: Beef tacos<span class="cost">($3.00)</span></li></ul></div>
+    <div class="meal-day"><h3>Day 3</h3><ul class="meal-list"><li>Breakfast: Smoothie with oats<span class="cost">($1.20)</span></li><li>Lunch: Hummus & veggie wrap<span class="cost">($2.00)</span></li><li>Dinner: Baked chicken + sweet potato<span class="cost">($3.00)</span></li></ul></div>
+    <div class="meal-day"><h3>Day 4</h3><ul class="meal-list"><li>Breakfast: Eggs & avocado toast<span class="cost">($1.50)</span></li><li>Lunch: Salmon salad<span class="cost">($2.75)</span></li><li>Dinner: Turkey chili + rice<span class="cost">($2.75)</span></li></ul></div>
+    <div class="meal-day"><h3>Day 5</h3><ul class="meal-list"><li>Breakfast: Greek yogurt parfait<span class="cost">($1.25)</span></li><li>Lunch: Bean & cheese quesadilla<span class="cost">($2.00)</span></li><li>Dinner: Pork stir-fry + rice<span class="cost">($3.00)</span></li></ul></div>
+    <div class="meal-day"><h3>Day 6</h3><ul class="meal-list"><li>Breakfast: Oatmeal with nuts & fruit<span class="cost">($1.50)</span></li><li>Lunch: Tuna wrap<span class="cost">($2.00)</span></li><li>Dinner: Vegetable pasta primavera<span class="cost">($2.75)</span></li></ul></div>
+    <div class="meal-day"><h3>Day 7</h3><ul class="meal-list"><li>Breakfast: Egg & veggie scramble<span class="cost">($1.50)</span></li><li>Lunch: Quinoa Buddha bowl<span class="cost">($2.50)</span></li><li>Dinner: Baked fish + veggie medley<span class="cost">($3.25)</span></li></ul></div>
+  </section>
+
+  <section class="grocery">
+    <h2>🛒 Pantry & Grocery List (All 4 Weeks)</h2>
+    <ul><li>Oats, bread, rice, pasta, quinoa</li><li>Peanut butter, eggs, cheese, yogurt</li><li>Canned tuna, beans, lentils, tomato sauce</li><li>Frozen veggies & spinach</li><li>Fresh produce: banana, apple, berries, orange, veggies</li><li>Meat/seafood: chicken, beef, pork, fish, shrimp</li><li>Seasonings, olive oil, cornbread mix</li></ul>
+  </section>
+
+</div>
+
+<footer>Free for all — share and adapt as needed!</footer>
+
+</body>
+</html>
