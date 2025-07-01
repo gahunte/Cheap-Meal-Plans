@@ -7,109 +7,118 @@
   <style>
     body {
       font-family: Arial, sans-serif;
-      max-width: 900px;
-      margin: 20px auto;
-      padding: 0 20px;
-      background: #f9f9f9;
+      background-color: #f9fafb;
+      margin: 0;
+      padding: 0;
       color: #333;
     }
-    h1, h2 {
+    header {
+      background-color: #4caf50;
+      color: white;
+      padding: 1.5rem 2rem;
       text-align: center;
+      font-size: 1.8rem;
+      font-weight: bold;
+      letter-spacing: 1.2px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.15);
     }
-    section.week {
-      background: white;
+    main {
+      max-width: 900px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+    }
+    h2 {
+      color: #388e3c;
+      margin-bottom: 0.6rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .week {
+      background: #e8f5e9;
       border-radius: 8px;
-      padding: 15px 20px 40px;
-      margin-bottom: 30px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-      position: relative;
+      padding: 1rem 1.5rem;
+      margin-bottom: 2rem;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
     }
     .meal-day {
-      margin-bottom: 15px;
+      margin-bottom: 1rem;
     }
     .meal-day h3 {
-      margin-bottom: 8px;
-      color: #2a7ae2;
+      margin-bottom: 0.3rem;
+      font-weight: 600;
+      color: #2e7d32;
     }
     ul {
-      list-style-type: none;
+      list-style: none;
       padding-left: 0;
+      margin: 0;
     }
     ul li {
-      margin-bottom: 5px;
+      margin-bottom: 0.4rem;
     }
     a.locked {
       color: #555;
       text-decoration: none;
-      position: relative;
       cursor: pointer;
-    }
-    a.locked:hover {
-      color: #2a7ae2;
-      text-decoration: underline;
+      position: relative;
+      font-weight: 500;
     }
     a.locked::before {
       content: "🔒 ";
-      position: relative;
-      left: 0;
+      color: #c62828;
+      font-weight: normal;
+    }
+    a.locked:hover {
+      text-decoration: underline;
+      color: #2e7d32;
     }
     .cost {
-      color: #888;
-      margin-left: 8px;
-      font-size: 0.9em;
-    }
-    button.print-btn {
-      position: absolute;
-      top: 20px;
-      right: 20px;
-      background-color: #2a7ae2;
-      color: white;
-      border: none;
-      border-radius: 4px;
-      padding: 6px 12px;
-      cursor: pointer;
-      font-size: 0.9em;
-    }
-    button.print-btn:hover {
-      background-color: #1b5bbf;
+      margin-left: 0.4rem;
+      font-weight: 600;
+      color: #4caf50;
     }
     .buy-week-btn {
-      display: block;
-      margin: 20px auto 0 auto;
-      background-color: #28a745;
+      display: inline-block;
+      margin-top: 1rem;
+      background-color: #43a047;
       color: white;
-      border: none;
-      border-radius: 6px;
-      padding: 10px 18px;
-      font-size: 1em;
-      cursor: pointer;
-      width: fit-content;
-      text-align: center;
+      padding: 0.6rem 1.3rem;
+      border-radius: 5px;
       text-decoration: none;
+      font-weight: bold;
+      transition: background-color 0.3s ease;
     }
     .buy-week-btn:hover {
-      background-color: #1e7e34;
-      text-decoration: none;
+      background-color: #2e7d32;
+    }
+    .print-btn {
+      background-color: #81c784;
+      border: none;
       color: white;
+      padding: 0.3rem 0.8rem;
+      font-size: 0.9rem;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.25s ease;
+    }
+    .print-btn:hover {
+      background-color: #66bb6a;
     }
     footer {
       text-align: center;
-      margin: 50px 0 20px;
       color: #777;
-      font-size: 0.9em;
-    }
-    p.intro {
-      text-align: center;
-      font-style: italic;
-      margin-bottom: 30px;
+      padding: 1.5rem 0;
+      font-size: 0.9rem;
+      border-top: 1px solid #ddd;
+      margin-top: 3rem;
     }
   </style>
 </head>
 <body>
-  <h1>Cheap Meal Plans with Locked Recipes</h1>
-  <p class="intro">Click on any meal to purchase its recipe for $1.00 or buy the entire week's recipes at a discount for $10.</p>
+  <header>Delicious & Affordable Meal Plans for Everyone!</header>
 
-  <div id="meal-plans">
+  <main id="recipes">
 
     <!-- Week 1 -->
     <section id="week1" class="week">
@@ -118,63 +127,63 @@
       <div class="meal-day">
         <h3>Day 1</h3>
         <ul>
-          <li><a href="https://gumroad.com/l/day1-breakfast" target="_blank" class="locked">Oatmeal + banana</a><span class="cost">($1.00)</span></li>
-          <li><a href="https://gumroad.com/l/day1-lunch" target="_blank" class="locked">Rice and beans</a><span class="cost">($1.00)</span></li>
-          <li><a href="https://gumroad.com/l/day1-dinner" target="_blank" class="locked">Baked chicken + veggies</a><span class="cost">($1.00)</span></li>
+          <li><a href="https://gumroad.com/l/day1-breakfast" target="_blank" class="locked">Oatmeal with banana & honey</a><span class="cost">($1.00)</span></li>
+          <li><a href="https://gumroad.com/l/day1-lunch" target="_blank" class="locked">Rice and black beans with salsa</a><span class="cost">($1.00)</span></li>
+          <li><a href="https://gumroad.com/l/day1-dinner" target="_blank" class="locked">Baked chicken breast with steamed broccoli</a><span class="cost">($1.00)</span></li>
         </ul>
       </div>
 
       <div class="meal-day">
         <h3>Day 2</h3>
         <ul>
-          <li><a href="https://gumroad.com/l/day2-breakfast" target="_blank" class="locked">Yogurt + granola</a><span class="cost">($1.00)</span></li>
-          <li><a href="https://gumroad.com/l/day2-lunch" target="_blank" class="locked">Chicken wrap</a><span class="cost">($1.00)</span></li>
-          <li><a href="https://gumroad.com/l/day2-dinner" target="_blank" class="locked">Veggie pasta</a><span class="cost">($1.00)</span></li>
+          <li><a href="https://gumroad.com/l/day2-breakfast" target="_blank" class="locked">Greek yogurt with granola and berries</a><span class="cost">($1.00)</span></li>
+          <li><a href="https://gumroad.com/l/day2-lunch" target="_blank" class="locked">Whole wheat chicken wrap with veggies</a><span class="cost">($1.00)</span></li>
+          <li><a href="https://gumroad.com/l/day2-dinner" target="_blank" class="locked">Pasta primavera with tomato sauce</a><span class="cost">($1.00)</span></li>
         </ul>
       </div>
 
       <div class="meal-day">
         <h3>Day 3</h3>
         <ul>
-          <li><a href="https://gumroad.com/l/day3-breakfast" target="_blank" class="locked">Scrambled eggs + toast</a><span class="cost">($1.00)</span></li>
-          <li><a href="https://gumroad.com/l/day3-lunch" target="_blank" class="locked">Tuna salad</a><span class="cost">($1.00)</span></li>
-          <li><a href="https://gumroad.com/l/day3-dinner" target="_blank" class="locked">Spaghetti + meat sauce</a><span class="cost">($1.00)</span></li>
+          <li><a href="https://gumroad.com/l/day3-breakfast" target="_blank" class="locked">Scrambled eggs with whole wheat toast</a><span class="cost">($1.00)</span></li>
+          <li><a href="https://gumroad.com/l/day3-lunch" target="_blank" class="locked">Tuna salad sandwich</a><span class="cost">($1.00)</span></li>
+          <li><a href="https://gumroad.com/l/day3-dinner" target="_blank" class="locked">Spaghetti with lean meat sauce</a><span class="cost">($1.00)</span></li>
         </ul>
       </div>
 
       <div class="meal-day">
         <h3>Day 4</h3>
         <ul>
-          <li><a href="https://gumroad.com/l/day4-breakfast" target="_blank" class="locked">Peanut butter toast</a><span class="cost">($1.00)</span></li>
-          <li><a href="https://gumroad.com/l/day4-lunch" target="_blank" class="locked">Lentil soup</a><span class="cost">($1.00)</span></li>
-          <li><a href="https://gumroad.com/l/day4-dinner" target="_blank" class="locked">Roast chicken + potatoes</a><span class="cost">($1.00)</span></li>
+          <li><a href="https://gumroad.com/l/day4-breakfast" target="_blank" class="locked">Smoothie with spinach, banana, and almond milk</a><span class="cost">($1.00)</span></li>
+          <li><a href="https://gumroad.com/l/day4-lunch" target="_blank" class="locked">Quinoa salad with chickpeas and cucumbers</a><span class="cost">($1.00)</span></li>
+          <li><a href="https://gumroad.com/l/day4-dinner" target="_blank" class="locked">Grilled salmon with roasted sweet potatoes</a><span class="cost">($1.00)</span></li>
         </ul>
       </div>
 
       <div class="meal-day">
         <h3>Day 5</h3>
         <ul>
-          <li><a href="https://gumroad.com/l/day5-breakfast" target="_blank" class="locked">Cereal + milk</a><span class="cost">($1.00)</span></li>
-          <li><a href="https://gumroad.com/l/day5-lunch" target="_blank" class="locked">Grilled cheese sandwich</a><span class="cost">($1.00)</span></li>
-          <li><a href="https://gumroad.com/l/day5-dinner" target="_blank" class="locked">Beef stir fry</a><span class="cost">($1.00)</span></li>
+          <li><a href="https://gumroad.com/l/day5-breakfast" target="_blank" class="locked">Peanut butter toast with apple slices</a><span class="cost">($1.00)</span></li>
+          <li><a href="https://gumroad.com/l/day5-lunch" target="_blank" class="locked">Vegetable stir-fry with brown rice</a><span class="cost">($1.00)</span></li>
+          <li><a href="https://gumroad.com/l/day5-dinner" target="_blank" class="locked">Turkey chili with beans</a><span class="cost">($1.00)</span></li>
         </ul>
       </div>
 
       <div class="meal-day">
         <h3>Day 6</h3>
         <ul>
-          <li><a href="https://gumroad.com/l/day6-breakfast" target="_blank" class="locked">Fruit smoothie</a><span class="cost">($1.00)</span></li>
-          <li><a href="https://gumroad.com/l/day6-lunch" target="_blank" class="locked">Turkey sandwich</a><span class="cost">($1.00)</span></li>
-          <li><a href="https://gumroad.com/l/day6-dinner" target="_blank" class="locked">Vegetable curry + rice</a><span class="cost">($1.00)</span></li>
+          <li><a href="https://gumroad.com/l/day6-breakfast" target="_blank" class="locked">Cottage cheese with pineapple</a><span class="cost">($1.00)</span></li>
+          <li><a href="https://gumroad.com/l/day6-lunch" target="_blank" class="locked">Egg salad sandwich</a><span class="cost">($1.00)</span></li>
+          <li><a href="https://gumroad.com/l/day6-dinner" target="_blank" class="locked">Vegetable curry with basmati rice</a><span class="cost">($1.00)</span></li>
         </ul>
       </div>
 
       <div class="meal-day">
         <h3>Day 7</h3>
         <ul>
-          <li><a href="https://gumroad.com/l/day7-breakfast" target="_blank" class="locked">Bagel + cream cheese</a><span class="cost">($1.00)</span></li>
-          <li><a href="https://gumroad.com/l/day7-lunch" target="_blank" class="locked">Chicken Caesar salad</a><span class="cost">($1.00)</span></li>
-          <li><a href="https://gumroad.com/l/day7-dinner" target="_blank" class="locked">Fish tacos</a><span class="cost">($1.00)</span></li>
+          <li><a href="https://gumroad.com/l/day7-breakfast" target="_blank" class="locked">Whole grain pancakes with berries</a><span class="cost">($1.00)</span></li>
+          <li><a href="https://gumroad.com/l/day7-lunch" target="_blank" class="locked">Lentil soup with whole wheat bread</a><span class="cost">($1.00)</span></li>
+          <li><a href="https://gumroad.com/l/day7-dinner" target="_blank" class="locked">Roasted chicken with mixed veggies</a><span class="cost">($1.00)</span></li>
         </ul>
       </div>
 
@@ -188,63 +197,63 @@
       <div class="meal-day">
         <h3>Day 8</h3>
         <ul>
-          <li><a href="https://gumroad.com/l/day8-breakfast" target="_blank" class="locked">Toast + peanut butter</a><span class="cost">($1.00)</span></li>
-          <li><a href="https://gumroad.com/l/day8-lunch" target="_blank" class="locked">Egg salad sandwich</a><span class="cost">($1.00)</span></li>
-          <li><a href="https://gumroad.com/l/day8-dinner" target="_blank" class="locked">Pasta with tomato sauce</a><span class="cost">($1.00)</span></li>
+          <li><a href="https://gumroad.com/l/day8-breakfast" target="_blank" class="locked">Avocado toast with tomato slices</a><span class="cost">($1.00)</span></li>
+          <li><a href="https://gumroad.com/l/day8-lunch" target="_blank" class="locked">Chicken and vegetable soup</a><span class="cost">($1.00)</span></li>
+          <li><a href="https://gumroad.com/l/day8-dinner" target="_blank" class="locked">Beef stir-fry with veggies</a><span class="cost">($1.00)</span></li>
         </ul>
       </div>
 
       <div class="meal-day">
         <h3>Day 9</h3>
         <ul>
-          <li><a href="https://gumroad.com/l/day9-breakfast" target="_blank" class="locked">Scrambled eggs + veggies</a><span class="cost">($1.00)</span></li>
-          <li><a href="https://gumroad.com/l/day9-lunch" target="_blank" class="locked">Quinoa salad</a><span class="cost">($1.00)</span></li>
-          <li><a href="https://gumroad.com/l/day9-dinner" target="_blank" class="locked">Beef stew</a><span class="cost">($1.00)</span></li>
+          <li><a href="https://gumroad.com/l/day9-breakfast" target="_blank" class="locked">Chia seed pudding with mango</a><span class="cost">($1.00)</span></li>
+          <li><a href="https://gumroad.com/l/day9-lunch" target="_blank" class="locked">Turkey sandwich with lettuce and tomato</a><span class="cost">($1.00)</span></li>
+          <li><a href="https://gumroad.com/l/day9-dinner" target="_blank" class="locked">Grilled tilapia with quinoa</a><span class="cost">($1.00)</span></li>
         </ul>
       </div>
 
       <div class="meal-day">
         <h3>Day 10</h3>
         <ul>
-          <li><a href="https://gumroad.com/l/day10-breakfast" target="_blank" class="locked">Greek yogurt + honey</a><span class="cost">($1.00)</span></li>
-          <li><a href="https://gumroad.com/l/day10-lunch" target="_blank" class="locked">Veggie wrap</a><span class="cost">($1.00)</span></li>
-          <li><a href="https://gumroad.com/l/day10-dinner" target="_blank" class="locked">Chicken stir fry</a><span class="cost">($1.00)</span></li>
+          <li><a href="https://gumroad.com/l/day10-breakfast" target="_blank" class="locked">Fruit salad with cottage cheese</a><span class="cost">($1.00)</span></li>
+          <li><a href="https://gumroad.com/l/day10-lunch" target="_blank" class="locked">Vegetable wrap with hummus</a><span class="cost">($1.00)</span></li>
+          <li><a href="https://gumroad.com/l/day10-dinner" target="_blank" class="locked">Chicken fajitas with peppers</a><span class="cost">($1.00)</span></li>
         </ul>
       </div>
 
       <div class="meal-day">
         <h3>Day 11</h3>
         <ul>
-          <li><a href="https://gumroad.com/l/day11-breakfast" target="_blank" class="locked">Pancakes + syrup</a><span class="cost">($1.00)</span></li>
-          <li><a href="https://gumroad.com/l/day11-lunch" target="_blank" class="locked">Tuna sandwich</a><span class="cost">($1.00)</span></li>
-          <li><a href="https://gumroad.com/l/day11-dinner" target="_blank" class="locked">Vegetable chili</a><span class="cost">($1.00)</span></li>
+          <li><a href="https://gumroad.com/l/day11-breakfast" target="_blank" class="locked">Banana and peanut butter smoothie</a><span class="cost">($1.00)</span></li>
+          <li><a href="https://gumroad.com/l/day11-lunch" target="_blank" class="locked">Eggplant parmesan sandwich</a><span class="cost">($1.00)</span></li>
+          <li><a href="https://gumroad.com/l/day11-dinner" target="_blank" class="locked">Shrimp and broccoli stir-fry</a><span class="cost">($1.00)</span></li>
         </ul>
       </div>
 
       <div class="meal-day">
         <h3>Day 12</h3>
         <ul>
-          <li><a href="https://gumroad.com/l/day12-breakfast" target="_blank" class="locked">Fruit salad</a><span class="cost">($1.00)</span></li>
-          <li><a href="https://gumroad.com/l/day12-lunch" target="_blank" class="locked">Chicken quesadilla</a><span class="cost">($1.00)</span></li>
-          <li><a href="https://gumroad.com/l/day12-dinner" target="_blank" class="locked">Baked salmon + rice</a><span class="cost">($1.00)</span></li>
+          <li><a href="https://gumroad.com/l/day12-breakfast" target="_blank" class="locked">Whole wheat bagel with cream cheese</a><span class="cost">($1.00)</span></li>
+          <li><a href="https://gumroad.com/l/day12-lunch" target="_blank" class="locked">Black bean tacos with salsa</a><span class="cost">($1.00)</span></li>
+          <li><a href="https://gumroad.com/l/day12-dinner" target="_blank" class="locked">Beef stew with carrots and potatoes</a><span class="cost">($1.00)</span></li>
         </ul>
       </div>
 
       <div class="meal-day">
         <h3>Day 13</h3>
         <ul>
-          <li><a href="https://gumroad.com/l/day13-breakfast" target="_blank" class="locked">Bagel + cream cheese</a><span class="cost">($1.00)</span></li>
-          <li><a href="https://gumroad.com/l/day13-lunch" target="_blank" class="locked">BLT sandwich</a><span class="cost">($1.00)</span></li>
-          <li><a href="https://gumroad.com/l/day13-dinner" target="_blank" class="locked">Meatloaf + veggies</a><span class="cost">($1.00)</span></li>
+          <li><a href="https://gumroad.com/l/day13-breakfast" target="_blank" class="locked">Apple cinnamon oatmeal</a><span class="cost">($1.00)</span></li>
+          <li><a href="https://gumroad.com/l/day13-lunch" target="_blank" class="locked">Caesar salad with grilled chicken</a><span class="cost">($1.00)</span></li>
+          <li><a href="https://gumroad.com/l/day13-dinner" target="_blank" class="locked">Vegetable lasagna</a><span class="cost">($1.00)</span></li>
         </ul>
       </div>
 
       <div class="meal-day">
         <h3>Day 14</h3>
         <ul>
-          <li><a href="https://gumroad.com/l/day14-breakfast" target="_blank" class="locked">Cereal + milk</a><span class="cost">($1.00)</span></li>
-          <li><a href="https://gumroad.com/l/day14-lunch" target="_blank" class="locked">Chicken salad</a><span class="cost">($1.00)</span></li>
-          <li><a href="https://gumroad.com/l/day14-dinner" target="_blank" class="locked">Pasta primavera</a><span class="cost">($1.00)</span></li>
+          <li><a href="https://gumroad.com/l/day14-breakfast" target="_blank" class="locked">Whole grain waffles with strawberries</a><span class="cost">($1.00)</span></li>
+          <li><a href="https://gumroad.com/l/day14-lunch" target="_blank" class="locked">Chicken quinoa bowl with veggies</a><span class="cost">($1.00)</span></li>
+          <li><a href="https://gumroad.com/l/day14-dinner" target="_blank" class="locked">Baked cod with asparagus</a><span class="cost">($1.00)</span></li>
         </ul>
       </div>
 
@@ -258,162 +267,158 @@
       <div class="meal-day">
         <h3>Day 15</h3>
         <ul>
-          <li><a href="https://gumroad.com/l/day15-breakfast" target="_blank" class="locked">Oatmeal + berries</a><span class="cost">($1.00)</span></li>
-          <li><a href="https://gumroad.com/l/day15-lunch" target="_blank" class="locked">Turkey sandwich</a><span class="cost">($1.00)</span></li>
-          <li><a href="https://gumroad.com/l/day15-dinner" target="_blank" class="locked">Chicken curry</a><span class="cost">($1.00)</span></li>
+          <li><a href="https://gumroad.com/l/day15-breakfast" target="_blank" class="locked">Mango smoothie bowl with chia seeds</a><span class="cost">($1.00)</span></li>
+          <li><a href="https://gumroad.com/l/day15-lunch" target="_blank" class="locked">Turkey and avocado sandwich</a><span class="cost">($1.00)</span></li>
+          <li><a href="https://gumroad.com/l/day15-dinner" target="_blank" class="locked">Vegetable stir fry with tofu</a><span class="cost">($1.00)</span></li>
         </ul>
       </div>
 
       <div class="meal-day">
         <h3>Day 16</h3>
         <ul>
-          <li><a href="https://gumroad.com/l/day16-breakfast" target="_blank" class="locked">Greek yogurt + nuts</a><span class="cost">($1.00)</span></li>
-          <li><a href="https://gumroad.com/l/day16-lunch" target="_blank" class="locked">Veggie wrap</a><span class="cost">($1.00)</span></li>
-          <li><a href="https://gumroad.com/l/day16-dinner" target="_blank" class="locked">Beef tacos</a><span class="cost">($1.00)</span></li>
+          <li><a href="https://gumroad.com/l/day16-breakfast" target="_blank" class="locked">Peach yogurt parfait</a><span class="cost">($1.00)</span></li>
+          <li><a href="https://gumroad.com/l/day16-lunch" target="_blank" class="locked">Chickpea salad pita</a><span class="cost">($1.00)</span></li>
+          <li><a href="https://gumroad.com/l/day16-dinner" target="_blank" class="locked">Chicken curry with rice</a><span class="cost">($1.00)</span></li>
         </ul>
       </div>
 
       <div class="meal-day">
         <h3>Day 17</h3>
         <ul>
-          <li><a href="https://gumroad.com/l/day17-breakfast" target="_blank" class="locked">Pancakes + fruit</a><span class="cost">($1.00)</span></li>
-          <li><a href="https://gumroad.com/l/day17-lunch" target="_blank" class="locked">Chicken salad</a><span class="cost">($1.00)</span></li>
-          <li><a href="https://gumroad.com/l/day17-dinner" target="_blank" class="locked">Spaghetti + meat sauce</a><span class="cost">($1.00)</span></li>
+          <li><a href="https://gumroad.com/l/day17-breakfast" target="_blank" class="locked">Banana oat pancakes</a><span class="cost">($1.00)</span></li>
+          <li><a href="https://gumroad.com/l/day17-lunch" target="_blank" class="locked">Vegetable soup with bread roll</a><span class="cost">($1.00)</span></li>
+          <li><a href="https://gumroad.com/l/day17-dinner" target="_blank" class="locked">Beef and broccoli</a><span class="cost">($1.00)</span></li>
         </ul>
       </div>
 
       <div class="meal-day">
         <h3>Day 18</h3>
         <ul>
-          <li><a href="https://gumroad.com/l/day18-breakfast" target="_blank" class="locked">Bagel + cream cheese</a><span class="cost">($1.00)</span></li>
-          <li><a href="https://gumroad.com/l/day18-lunch" target="_blank" class="locked">Tuna sandwich</a><span class="cost">($1.00)</span></li>
-          <li><a href="https://gumroad.com/l/day18-dinner" target="_blank" class="locked">Veggie chili</a><span class="cost">($1.00)</span></li>
+          <li><a href="https://gumroad.com/l/day18-breakfast" target="_blank" class="locked">Scrambled tofu with veggies</a><span class="cost">($1.00)</span></li>
+          <li><a href="https://gumroad.com/l/day18-lunch" target="_blank" class="locked">Chicken Caesar wrap</a><span class="cost">($1.00)</span></li>
+          <li><a href="https://gumroad.com/l/day18-dinner" target="_blank" class="locked">Baked ziti with cheese</a><span class="cost">($1.00)</span></li>
         </ul>
       </div>
 
       <div class="meal-day">
         <h3>Day 19</h3>
         <ul>
-          <li><a href="https://gumroad.com/l/day19-breakfast" target="_blank" class="locked">Cereal + milk</a><span class="cost">($1.00)</span></li>
-          <li><a href="https://gumroad.com/l/day19-lunch" target="_blank" class="locked">Chicken quesadilla</a><span class="cost">($1.00)</span></li>
-          <li><a href="https://gumroad.com/l/day19-dinner" target="_blank" class="locked">Beef stew</a><span class="cost">($1.00)</span></li>
+          <li><a href="https://gumroad.com/l/day19-breakfast" target="_blank" class="locked">Fruit smoothie with spinach</a><span class="cost">($1.00)</span></li>
+          <li><a href="https://gumroad.com/l/day19-lunch" target="_blank" class="locked">Grilled cheese sandwich</a><span class="cost">($1.00)</span></li>
+          <li><a href="https://gumroad.com/l/day19-dinner" target="_blank" class="locked">Chicken stir-fry with noodles</a><span class="cost">($1.00)</span></li>
         </ul>
       </div>
 
       <div class="meal-day">
         <h3>Day 20</h3>
         <ul>
-          <li><a href="https://gumroad.com/l/day20-breakfast" target="_blank" class="locked">Fruit smoothie</a><span class="cost">($1.00)</span></li>
-          <li><a href="https://gumroad.com/l/day20-lunch" target="_blank" class="locked">Turkey sandwich</a><span class="cost">($1.00)</span></li>
-          <li><a href="https://gumroad.com/l/day20-dinner" target="_blank" class="locked">Vegetable curry + rice</a><span class="cost">($1.00)</span></li>
+          <li><a href="https://gumroad.com/l/day20-breakfast" target="_blank" class="locked">Whole grain cereal with milk</a><span class="cost">($1.00)</span></li>
+          <li><a href="https://gumroad.com/l/day20-lunch" target="_blank" class="locked">Tuna pasta salad</a><span class="cost">($1.00)</span></li>
+          <li><a href="https://gumroad.com/l/day20-dinner" target="_blank" class="locked">Stuffed bell peppers</a><span class="cost">($1.00)</span></li>
         </ul>
       </div>
 
       <div class="meal-day">
         <h3>Day 21</h3>
         <ul>
-          <li><a href="https://gumroad.com/l/day21-breakfast" target="_blank" class="locked">Toast + jam</a><span class="cost">($1.00)</span></li>
-          <li><a href="https://gumroad.com/l/day21-lunch" target="_blank" class="locked">BLT sandwich</a><span class="cost">($1.00)</span></li>
-          <li><a href="https://gumroad.com/l/day21-dinner" target="_blank" class="locked">Roast chicken + veggies</a><span class="cost">($1.00)</span></li>
+          <li><a href="https://gumroad.com/l/day21-breakfast" target="_blank" class="locked">Yogurt with honey and walnuts</a><span class="cost">($1.00)</span></li>
+          <li><a href="https://gumroad.com/l/day21-lunch" target="_blank" class="locked">Chicken and avocado salad</a><span class="cost">($1.00)</span></li>
+          <li><a href="https://gumroad.com/l/day21-dinner" target="_blank" class="locked">Vegetable fried rice</a><span class="cost">($1.00)</span></li>
         </ul>
       </div>
 
       <a href="https://gumroad.com/l/week3-all" target="_blank" class="buy-week-btn" aria-label="Buy all recipes for Week 3 for $10">Buy Week 3 Recipes - $10</a>
     </section>
 
-    <!-- Week 4 renamed to 1 Month -->
+    <!-- Week 4 -->
     <section id="week4" class="week">
-      <h2>1 Month <button class="print-btn" onclick="printWeek('#week4')">Print Month</button></h2>
+      <h2>Week 4 <button class="print-btn" onclick="printWeek('#week4')">Print Week</button></h2>
 
       <div class="meal-day">
         <h3>Day 22</h3>
         <ul>
-          <li><a href="https://gumroad.com/l/day22-breakfast" target="_blank" class="locked">Oatmeal + banana</a><span class="cost">($1.00)</span></li>
-          <li><a href="https://gumroad.com/l/day22-lunch" target="_blank" class="locked">Rice and beans</a><span class="cost">($1.00)</span></li>
-          <li><a href="https://gumroad.com/l/day22-dinner" target="_blank" class="locked">Baked chicken + veggies</a><span class="cost">($1.00)</span></li>
+          <li><a href="https://gumroad.com/l/day22-breakfast" target="_blank" class="locked">Chia pudding with blueberries</a><span class="cost">($1.00)</span></li>
+          <li><a href="https://gumroad.com/l/day22-lunch" target="_blank" class="locked">Quinoa and black bean salad</a><span class="cost">($1.00)</span></li>
+          <li><a href="https://gumroad.com/l/day22-dinner" target="_blank" class="locked">Baked chicken thighs with green beans</a><span class="cost">($1.00)</span></li>
         </ul>
       </div>
 
       <div class="meal-day">
         <h3>Day 23</h3>
         <ul>
-          <li><a href="https://gumroad.com/l/day23-breakfast" target="_blank" class="locked">Yogurt + granola</a><span class="cost">($1.00)</span></li>
-          <li><a href="https://gumroad.com/l/day23-lunch" target="_blank" class="locked">Chicken wrap</a><span class="cost">($1.00)</span></li>
-          <li><a href="https://gumroad.com/l/day23-dinner" target="_blank" class="locked">Veggie pasta</a><span class="cost">($1.00)</span></li>
+          <li><a href="https://gumroad.com/l/day23-breakfast" target="_blank" class="locked">Peanut butter banana smoothie</a><span class="cost">($1.00)</span></li>
+          <li><a href="https://gumroad.com/l/day23-lunch" target="_blank" class="locked">Vegetable sushi rolls</a><span class="cost">($1.00)</span></li>
+          <li><a href="https://gumroad.com/l/day23-dinner" target="_blank" class="locked">Spaghetti with marinara sauce</a><span class="cost">($1.00)</span></li>
         </ul>
       </div>
 
       <div class="meal-day">
         <h3>Day 24</h3>
         <ul>
-          <li><a href="https://gumroad.com/l/day24-breakfast" target="_blank" class="locked">Scrambled eggs + toast</a><span class="cost">($1.00)</span></li>
-          <li><a href="https://gumroad.com/l/day24-lunch" target="_blank" class="locked">Tuna salad</a><span class="cost">($1.00)</span></li>
-          <li><a href="https://gumroad.com/l/day24-dinner" target="_blank" class="locked">Spaghetti + meat sauce</a><span class="cost">($1.00)</span></li>
+          <li><a href="https://gumroad.com/l/day24-breakfast" target="_blank" class="locked">Greek yogurt with honey and almonds</a><span class="cost">($1.00)</span></li>
+          <li><a href="https://gumroad.com/l/day24-lunch" target="_blank" class="locked">Chicken Caesar salad</a><span class="cost">($1.00)</span></li>
+          <li><a href="https://gumroad.com/l/day24-dinner" target="_blank" class="locked">Beef tacos with lettuce and cheese</a><span class="cost">($1.00)</span></li>
         </ul>
       </div>
 
       <div class="meal-day">
         <h3>Day 25</h3>
         <ul>
-          <li><a href="https://gumroad.com/l/day25-breakfast" target="_blank" class="locked">Peanut butter toast</a><span class="cost">($1.00)</span></li>
-          <li><a href="https://gumroad.com/l/day25-lunch" target="_blank" class="locked">Lentil soup</a><span class="cost">($1.00)</span></li>
-          <li><a href="https://gumroad.com/l/day25-dinner" target="_blank" class="locked">Roast chicken + potatoes</a><span class="cost">($1.00)</span></li>
+          <li><a href="https://gumroad.com/l/day25-breakfast" target="_blank" class="locked">Whole grain toast with jam</a><span class="cost">($1.00)</span></li>
+          <li><a href="https://gumroad.com/l/day25-lunch" target="_blank" class="locked">Lentil soup with bread</a><span class="cost">($1.00)</span></li>
+          <li><a href="https://gumroad.com/l/day25-dinner" target="_blank" class="locked">Grilled shrimp with vegetable skewers</a><span class="cost">($1.00)</span></li>
         </ul>
       </div>
 
       <div class="meal-day">
         <h3>Day 26</h3>
         <ul>
-          <li><a href="https://gumroad.com/l/day26-breakfast" target="_blank" class="locked">Cereal + milk</a><span class="cost">($1.00)</span></li>
-          <li><a href="https://gumroad.com/l/day26-lunch" target="_blank" class="locked">Grilled cheese sandwich</a><span class="cost">($1.00)</span></li>
-          <li><a href="https://gumroad.com/l/day26-dinner" target="_blank" class="locked">Beef stir fry</a><span class="cost">($1.00)</span></li>
+          <li><a href="https://gumroad.com/l/day26-breakfast" target="_blank" class="locked">Fruit and nut granola</a><span class="cost">($1.00)</span></li>
+          <li><a href="https://gumroad.com/l/day26-lunch" target="_blank" class="locked">Chicken pita with tzatziki</a><span class="cost">($1.00)</span></li>
+          <li><a href="https://gumroad.com/l/day26-dinner" target="_blank" class="locked">Vegetable pasta primavera</a><span class="cost">($1.00)</span></li>
         </ul>
       </div>
 
       <div class="meal-day">
         <h3>Day 27</h3>
         <ul>
-          <li><a href="https://gumroad.com/l/day27-breakfast" target="_blank" class="locked">Fruit smoothie</a><span class="cost">($1.00)</span></li>
-          <li><a href="https://gumroad.com/l/day27-lunch" target="_blank" class="locked">Turkey sandwich</a><span class="cost">($1.00)</span></li>
-          <li><a href="https://gumroad.com/l/day27-dinner" target="_blank" class="locked">Vegetable curry + rice</a><span class="cost">($1.00)</span></li>
+          <li><a href="https://gumroad.com/l/day27-breakfast" target="_blank" class="locked">Smoothie with kale and pineapple</a><span class="cost">($1.00)</span></li>
+          <li><a href="https://gumroad.com/l/day27-lunch" target="_blank" class="locked">Tuna salad wrap</a><span class="cost">($1.00)</span></li>
+          <li><a href="https://gumroad.com/l/day27-dinner" target="_blank" class="locked">Baked salmon with quinoa and veggies</a><span class="cost">($1.00)</span></li>
         </ul>
       </div>
 
       <div class="meal-day">
         <h3>Day 28</h3>
         <ul>
-          <li><a href="https://gumroad.com/l/day28-breakfast" target="_blank" class="locked">Bagel + cream cheese</a><span class="cost">($1.00)</span></li>
-          <li><a href="https://gumroad.com/l/day28-lunch" target="_blank" class="locked">Chicken Caesar salad</a><span class="cost">($1.00)</span></li>
-          <li><a href="https://gumroad.com/l/day28-dinner" target="_blank" class="locked">Fish tacos</a><span class="cost">($1.00)</span></li>
+          <li><a href="https://gumroad.com/l/day28-breakfast" target="_blank" class="locked">Oatmeal with raisins and cinnamon</a><span class="cost">($1.00)</span></li>
+          <li><a href="https://gumroad.com/l/day28-lunch" target="_blank" class="locked">Vegetable stir-fry with tofu</a><span class="cost">($1.00)</span></li>
+          <li><a href="https://gumroad.com/l/day28-dinner" target="_blank" class="locked">Roast beef with mashed potatoes</a><span class="cost">($1.00)</span></li>
         </ul>
       </div>
 
-      <a href="https://gumroad.com/l/week4-all" target="_blank" class="buy-week-btn" aria-label="Buy all recipes for Month for $10">Buy Month Recipes - $10</a>
+      <a href="https://gumroad.com/l/week4-all" target="_blank" class="buy-week-btn" aria-label="Buy all recipes for Week 4 for $10">Buy Week 4 Recipes - $10</a>
     </section>
 
-  </div>
+  </main>
 
   <footer>
-    &copy; 2025 Cheap Meal Plans
+    &copy; 2025 Affordable Meal Plans. All rights reserved.
   </footer>
 
   <script>
     function printWeek(selector) {
-      const content = document.querySelector(selector);
-      if (!content) return;
-
-      const printWindow = window.open('', '', 'width=800,height=600');
-      printWindow.document.write('<html><head><title>Print Recipes</title>');
-      printWindow.document.write('<style>body{font-family: Arial, sans-serif; margin:20px;} h2 {color:#2a7ae2;} ul {list-style:none; padding-left:0;} li {margin-bottom:6px;} a.locked::before {content:"🔒 ";} a.locked {text-decoration:none; color:#333;} a.locked:hover {text-decoration:underline; color:#2a7ae2;} </style>');
-      printWindow.document.write('</head><body>');
-      printWindow.document.write(content.innerHTML);
-      printWindow.document.write('</body></html>');
-      printWindow.document.close();
-      printWindow.focus();
-      printWindow.print();
-      printWindow.close();
+      const content = document.querySelector(selector).innerHTML;
+      const originalContent = document.body.innerHTML;
+      document.body.innerHTML = content;
+      window.print();
+      document.body.innerHTML = originalContent;
+      location.reload(); // Reload page to restore event listeners & styling
     }
   </script>
+</body>
+</html>
+
 </body>
 </html>
 
